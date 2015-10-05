@@ -1,0 +1,244 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #F5F5F5;
+  color: #737373;
+}
+
+label {
+    display: block;
+    line-height: 25px;
+}
+
+li {
+list-style: none;
+}
+
+.rack {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+    background-color: rgb(255, 255, 255);
+    margin: 0px auto;
+    -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+.container{
+  width: 750px;
+  margin: 0 auto;
+}
+
+.users {
+	font-weight: bold;
+}
+
+.slider {
+	-webkit-appearance: slider-vertical;
+	width: 24px;
+}
+
+.pointer {
+  position: absolute;
+  background: red;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  z-index: 3;
+}
+
+.full808 {
+  margin: 0 auto;
+}
+
+.grid808 {
+  width:38px;
+  height:38px;
+  background-color: #6496c8;
+}
+
+.tracks808 {
+  position:relative;
+}
+
+.grid808-track0 {
+  display:inline-block;
+}
+
+.grid808-track1 {
+  display:inline-block;
+  border-radius: 10px;
+  border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid808-track2 {
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid808-track3 {
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid808-track4{ 
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid808-beat1 {
+  background-color: #F67017;
+}
+.grid808-beat2 {
+  background-color: #F2A200;
+}
+.grid808-beat3 {
+  background-color: #EEDF2F;
+}
+.grid808-beat4 {
+  background-color: #FFFFFF;
+}
+
+.filter808 {
+  padding-bottom: 20px;
+}
+
+
+.full909 {
+  margin: 0 auto;
+}
+
+.grid909 {
+  width:38px;
+  height:38px;
+  background-color: #6496c8;
+}
+
+.tracks909 {
+  position:relative;
+}
+
+.grid909-track0 {
+  display:inline-block;
+}
+
+.grid909-track1 {
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid909-track2 {
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid909-track3 {
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid909-track4{ 
+  display:inline-block;
+  border-radius: 10px;
+    border: 1px solid rgb(230, 230, 230);
+  -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.grid909-beat1 {
+  background-color: #F67017;
+}
+.grid909-beat2 {
+  background-color: #F2A200;
+}
+.grid909-beat3 {
+  background-color: #EEDF2F;
+}
+.grid909-beat4 {
+  background-color: #FFFFFF;
+}
+
+.filter909 {
+  padding-bottom: 20px;
+}
+
+.drum-pad-container{
+  position:relative;
+  top:50px;
+}
+
+.track-name{
+  float:left;
+}
+
+.drumPad{
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  margin: 1em;
+  background-color:#346392;
+  text-align: center;
+  line-height: 50px;
+}
+
+#play-button{
+  background-color:green;
+}
+
+.number {
+  color: black;
+}
+
+
+.isotope-item {
+    z-index: 2;
+}
+.isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+}
+.isotope,
+.isotope .isotope-item {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    transition-duration: 0.8s;
+}
+.isotope {
+    -webkit-transition-property: height, width;
+    -moz-transition-property: height, width;
+    transition-property: height, width;
+}
+.isotope .isotope-item {
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    transition-property: transform, opacity;
+}
+
+.sequencer-steps {
+  display: inline-block;
+  width: 38px;
+}
+
+.play-pause {
+  font-size: 48px;
+}
+
+.play-controls{
+}
+
+.modals-808 {
+  display: inline-block;
+  width: 19%;
+}
