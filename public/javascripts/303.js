@@ -15,7 +15,6 @@ $pitchmods.on('change', function(e) {
 
 var $numbers = $('.number');
 $numbers.on('change', function(e) {
-
   pitchesArray[ $(this).data("id") ] = $(this).val();
 });
 
@@ -29,15 +28,26 @@ $accents.on('change', function(e) {
   accentArray[ $(this).val() ] = $(this).is(':checked');
 });
 
+var $portamentos = $('.portamentoBox:checkbox');
+$portamentos.on('change', function(e) {
+  portamentoArray[ $(this).val() ] = $(this).is(':checked');
+});
+
+var $octaves = $('.octaveBox:checkbox');
+$octaves.on('change', function(e) {
+  octaveArray[ $(this).val() ] = $(this).is(':checked');
+});
+
+
 schedule303 = function (current16thNote, time) {
     currentNote = ++currentNote % pitchesArray.length;
-    monoSynth((pitchesArray[current16thNote-1]), time, current16thNote -1, mutedArray[current16thNote-1], accentArray[current16thNote-1]);
+    monoSynth((pitchesArray[current16thNote-1]), time, current16thNote -1, mutedArray[current16thNote-1], accentArray[current16thNote-1], portamentoArray[current16thNote-1], octaveArray[current16thNote-1]);
 }
 
 
 //TODO: ALL MUTE, OCTAVE, GLIDE, FILTER MOVEMENT, REVERB
 //ACCENT IN PROGRESS: not quite right , but working
-monoSynth = function (note, time, current, mute, accent) {
+monoSynth = function (note, time, current, mute, accent, port, octave) {
   var oscillator = audioContext.createOscillator();
   var gainNode = audioContext.createGain();
   var muteGainNode = audioContext.createGain();
@@ -47,10 +57,17 @@ monoSynth = function (note, time, current, mute, accent) {
   var filter01Freq= filter01.value;
   var muted = mute;
   var accented = accent;
+  var portamento = port;
 
-//OSC > Filter > Env > Mute > Accent > Delay
+//OSC
   oscillator.type = type;
-  oscillator.frequency.value = mtof(note);
+
+  if(octave){
+    oscillator.frequency.value = mtof(note)/2.0;
+  }else{
+    oscillator.frequency.value = mtof(note);
+  }
+
   oscillator.start(time);
   oscillator.stop(time + noteLength);
   oscillator.connect(filterNode);
@@ -63,7 +80,15 @@ monoSynth = function (note, time, current, mute, accent) {
 
   gainNode.gain.setValueAtTime(0, time);
   gainNode.gain.linearRampToValueAtTime(1, time + attack);
-  gainNode.gain.linearRampToValueAtTime(0, time + noteLength);
+
+  if(portamento){
+    gainNode.gain.linearRampToValueAtTime(0, time + ( noteLength + noteLength));
+    console.log('port')
+  } else {
+    gainNode.gain.linearRampToValueAtTime(0, time + noteLength);
+  }
+
+
   gainNode.connect(muteGainNode);
 
   if(muted) {
@@ -79,6 +104,11 @@ monoSynth = function (note, time, current, mute, accent) {
     accentGainNode.gain.value = 0.65;
   }
   accentGainNode.connect(audioContext.destination);
+
+
+
+
+
 }
 
 

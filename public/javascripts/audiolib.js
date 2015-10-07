@@ -14,10 +14,11 @@ function audioFileLoader(fileDirectory) {
 
     getSound.send();
 
-    soundObj.play = function(timeVal, amplitude, pan) {
+    soundObj.play = function(timeVal, amplitude, pan, playbackRate) {
 
         var playSound = audioContext.createBufferSource();
         playSound.buffer = soundObj.soundToPlay;
+        playSound.playbackRate.value = playbackRate;
 
         var gainNode = audioContext.createGain();
         gainNode.gain.value = amplitude;

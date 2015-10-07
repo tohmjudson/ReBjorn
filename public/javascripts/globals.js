@@ -18,7 +18,9 @@ var isPlaying = false,
 //monoSynth Arrays
 var pitchesArray = [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0, 7],
     mutedArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-    accentArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+    accentArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+    portamentoArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+    octaveArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 
 //monoSynth
 var baseOctave = document.getElementById('baseOctave'),
@@ -28,7 +30,7 @@ var baseOctave = document.getElementById('baseOctave'),
     filter01 = document.getElementById('filter01'),
     filter01Display = document.getElementById('filter01Display'),
     noteLength = (60/tempo)/4,
-    attack = 1/64;
+    attack = 1/128;
 
 //====================== 808 ==========================//
 // Load samples 
@@ -49,16 +51,39 @@ var track1 = [],
     track3 = [],
     track4 = [];
 
-    var kick808Volume = .5;
-    var snare808Volume = .5;
-    var hihat808Volume = .5;
-    var shaker808Volume = .5;
 
-    var kick808pan = 0;
-    var snare808pan = 0;
-    var hihat808pan = 0;
-    var shaker808pan = 0;
+var gains = {
+    kick808Gain :.5,
+    snare808Gain :.5,
+    hihat808Gain : .5,
+    shaker808Gain : .5,
+    kick909Gain :.5,
+    snare909Gain :.5,
+    hihat909Gain : .5,
+    shaker909Gain : .5
+}
 
+var pans = {
+     kick808pan: 0,
+     snare808pan: 0,
+     hihat808pan: 0,
+     shaker808pan: 0,
+     kick909pan: 0,
+     snare909pan: 0,
+     hihat909pan: 0,
+     shaker909pan: 0
+}
+
+var playbackRates = {
+     kick808Rate: 1,
+     snare808Rate: 1,
+     hihat808Rate: 1,
+     shaker808Rate: 1,
+     kick909Rate: 1,
+     snare909Rate: 1,
+     hihat909Rate: 1,
+     shaker909Rate: 1
+}
 
 //====================== 909 ==========================//
 // Load samples 
@@ -79,15 +104,6 @@ var track909_1 = [],
     track909_3 = [],
     track909_4 = [];
 
-    var kick909Volume = .5;
-    var snare909Volume = .5;
-    var hihat909Volume = .5;
-    var shaker909Volume = .5;
-
-    var kick909pan = 0;
-    var snare909pan = 0;
-    var hihat909pan = 0;
-    var shaker909pan = 0;
 
 //===================== Utility ===================//
 //Pitch to text conversion
