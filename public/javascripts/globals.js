@@ -34,10 +34,10 @@ var baseOctave = document.getElementById('baseOctave'),
 
 //====================== 808 ==========================//
 // Load samples 
-var kick = audioFileLoader("sounds/kick.mp3"),
+/*var kick = audioFileLoader("sounds/808/BD03.wav"),
     snare = audioFileLoader("sounds/snare.mp3"),
     hihat = audioFileLoader("sounds/hihat.mp3"),
-    shaker = audioFileLoader("sounds/shaker.mp3");
+    shaker = audioFileLoader("sounds/shaker.mp3");*/
 
 // Track Que 
 var track1Que = [],
@@ -87,10 +87,10 @@ var playbackRates = {
 
 //====================== 909 ==========================//
 // Load samples 
-var kick909 = audioFileLoader("sounds/909/kick.mp3"),
+/*var kick909 = audioFileLoader("sounds/909/kick.mp3"),
     snare909 = audioFileLoader("sounds/909/snare.mp3"),
     hihat909 = audioFileLoader("sounds/909/hihat.mp3"),
-    shaker909 = audioFileLoader("sounds/909/rim.mp3");
+    shaker909 = audioFileLoader("sounds/909/rim.mp3");*/
 
 // Track Que 
 var track909_1Que = [],

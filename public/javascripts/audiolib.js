@@ -2,7 +2,6 @@ function audioFileLoader(fileDirectory) {
     var soundObj = {};
     soundObj.fileDirectory = fileDirectory;
 
-
     var getSound = new XMLHttpRequest();
     getSound.open("GET", soundObj.fileDirectory, true);
     getSound.responseType = "arraybuffer";

@@ -1,5 +1,14 @@
 $(function () {
 
+var kick808 = audioFileLoader("sounds/808/BD01.wav"),
+    snare808 = audioFileLoader("sounds/808/Snr01.wav"),
+    hihat808 = audioFileLoader("sounds/808/HH01.wav"),
+    shaker808 = audioFileLoader("sounds/808/CL01.wav");
+var kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
+    snare909 = audioFileLoader("sounds/909/snare.wav"),
+    hihat909 = audioFileLoader("sounds/909/hihat.wav"),
+    shaker909 = audioFileLoader("sounds/909/rim.wav");
+
 //================ Watchers =================//
   var $gains = $('.gain');
   $gains.on('change', function(e) {
@@ -17,14 +26,51 @@ $(function () {
     playbackRates[ $(this).attr('id') ] = this.value;
   });
 
+
+  var $loadAudioFiles = $('.loadAudioFile');
+  $loadAudioFiles.on('change', function(e) {
+    var soundFile = this.value
+    var idName = $(this).attr('id');
+    //console.log(this.value +":"+idName);
+    switch(idName){
+      case 'BD808':
+        kick808 = audioFileLoader(soundFile);
+        break;
+      case 'Snr808':
+        snare808 = audioFileLoader(soundFile);
+        break;
+      case 'HH808':
+        hihat808 = audioFileLoader(soundFile);
+        break;
+      case 'ACC808': 
+        shaker808 = audioFileLoader(soundFile);
+        break;
+      case 'BD909':
+        kick909 = audioFileLoader(soundFile);
+        break;
+      case 'Snr909':
+        snare909 = audioFileLoader(soundFile);
+        break;
+      case 'HH909':
+        hihat909 = audioFileLoader(soundFile);
+        break;
+      case 'ACC909': 
+        shaker909 = audioFileLoader(soundFile);
+        break;
+      }
+
+  });
+
+
+
 //================      ==================//
 //================ 808  ==================//
 //================      ==================//
   schedule808 = function (current16thNote, time) {
-      checkAndPlay(track1, kick, current16thNote, time, gains.kick808Gain, pans.kick808pan, playbackRates.kick808Rate);
-      checkAndPlay(track2, snare, current16thNote, time, gains.snare808Gain, pans.snare808pan, playbackRates.snare808Rate);
-      checkAndPlay(track3, hihat, current16thNote, time, gains.hihat808Gain, pans.hihat808pan, playbackRates.hihat808Rate);
-      checkAndPlay(track4, shaker, current16thNote, time, gains.shaker808Gain, pans.shaker808pan, playbackRates.shaker808Rate);
+      checkAndPlay(track1, kick808, current16thNote, time, gains.kick808Gain, pans.kick808pan, playbackRates.kick808Rate);
+      checkAndPlay(track2, snare808, current16thNote, time, gains.snare808Gain, pans.snare808pan, playbackRates.snare808Rate);
+      checkAndPlay(track3, hihat808, current16thNote, time, gains.hihat808Gain, pans.hihat808pan, playbackRates.hihat808Rate);
+      checkAndPlay(track4, shaker808, current16thNote, time, gains.shaker808Gain, pans.shaker808pan, playbackRates.shaker808Rate);
 
       track1.push(track1Que[0]);
       track1Que[0] = undefined;
