@@ -29,28 +29,39 @@ var baseOctave = document.getElementById('baseOctave'),
     basePitchDisplay = document.getElementById('basePitchDisplay'),
     filter01 = document.getElementById('filter01'),
     filter01Display = document.getElementById('filter01Display'),
+    delayTime = document.getElementById('delayTime'),
+    delayTimeDisplay = document.getElementById('delayTimeDisplay'),
+    delayFeedback = document.getElementById('delayFeedback'),
+    delayFeedbackDisplay = document.getElementById('delayFeedbackDisplay'),
+    delayCutoff = document.getElementById('delayCutoff'),
+    delayCutoffDisplay = document.getElementById('delayCutoffDisplay'),
+    distortion = document.getElementById('distortion'),
+    distortionDisplay = document.getElementById('distortionDisplay'),
+    masterGain303 = document.getElementById('masterGain303'),
+    masterGain303Display = document.getElementById('masterGain303Display'),
     noteLength = (60/tempo)/4,
     attack = 1/128;
 
 //====================== 808 ==========================//
-// Load samples 
-/*var kick = audioFileLoader("sounds/808/BD03.wav"),
-    snare = audioFileLoader("sounds/snare.mp3"),
-    hihat = audioFileLoader("sounds/hihat.mp3"),
-    shaker = audioFileLoader("sounds/shaker.mp3");*/
-
-// Track Que 
 var track1Que = [],
     track2Que = [],
     track3Que = [],
     track4Que = [];
 
-// Track Array 
 var track1 = [],
     track2 = [],
     track3 = [],
     track4 = [];
 
+var track909_1Que = [],
+    track909_2Que = [],
+    track909_3Que = [],
+    track909_4Que = [];
+
+var track909_1 = [],
+    track909_2 = [],
+    track909_3 = [],
+    track909_4 = [];
 
 var gains = {
     kick808Gain :.5,
@@ -84,26 +95,6 @@ var playbackRates = {
      hihat909Rate: 1,
      shaker909Rate: 1
 }
-
-//====================== 909 ==========================//
-// Load samples 
-/*var kick909 = audioFileLoader("sounds/909/kick.mp3"),
-    snare909 = audioFileLoader("sounds/909/snare.mp3"),
-    hihat909 = audioFileLoader("sounds/909/hihat.mp3"),
-    shaker909 = audioFileLoader("sounds/909/rim.mp3");*/
-
-// Track Que 
-var track909_1Que = [],
-    track909_2Que = [],
-    track909_3Que = [],
-    track909_4Que = [];
-
-// Track Array 
-var track909_1 = [],
-    track909_2 = [],
-    track909_3 = [],
-    track909_4 = [];
-
 
 //===================== Utility ===================//
 //Pitch to text conversion

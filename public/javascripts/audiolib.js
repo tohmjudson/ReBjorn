@@ -32,5 +32,4 @@ function audioFileLoader(fileDirectory) {
     }
 
     return soundObj;
-
 }

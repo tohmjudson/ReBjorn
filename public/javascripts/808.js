@@ -1,10 +1,10 @@
 $(function () {
-
+//================ Default Files =================//
 var kick808 = audioFileLoader("sounds/808/BD01.wav"),
     snare808 = audioFileLoader("sounds/808/Snr01.wav"),
     hihat808 = audioFileLoader("sounds/808/HH01.wav"),
-    shaker808 = audioFileLoader("sounds/808/CL01.wav");
-var kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
+    shaker808 = audioFileLoader("sounds/808/CL01.wav"),
+    kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
     snare909 = audioFileLoader("sounds/909/snare.wav"),
     hihat909 = audioFileLoader("sounds/909/hihat.wav"),
     shaker909 = audioFileLoader("sounds/909/rim.wav");
@@ -61,8 +61,6 @@ var kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
 
   });
 
-
-
 //================      ==================//
 //================ 808  ==================//
 //================      ==================//
@@ -86,7 +84,7 @@ var kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
 
   };
 
-//================ Play  ==================//
+//================ Play 808 ==================//
   checkAndPlay = function (trackArray, sndToPlay, current16thNote, time, gain, pan, rate) {
       for (var i = 0; i < trackArray.length; i += 1) {
           if (current16thNote === trackArray[i]) {
@@ -118,7 +116,7 @@ var kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
 
   };
 
-  //================ Play  ==================//
+  //================ Play 909 ==================//
   checkAndPlay909 = function (trackArray, sndToPlay, current16thNote, time, gain, pan, rate) {
       for (var i = 0; i < trackArray.length; i += 1) {
           if (current16thNote === trackArray[i]) {
@@ -169,7 +167,4 @@ var kick909 = audioFileLoader("sounds/909/BD/BT0A0A7.wav"),
   sequenceGridToggler(".grid909-track2", track909_2);
   sequenceGridToggler(".grid909-track3", track909_3);
   sequenceGridToggler(".grid909-track4", track909_4);
-
-
-
 });
