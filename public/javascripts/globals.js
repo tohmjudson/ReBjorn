@@ -1,19 +1,6 @@
 //Program Globals
 var audioContext = new (window.AudioContext || window.webkitAudioContext);
 
-//====================== Transport ==========================//
-var isPlaying = false,
-    tempo = 120.0,
-    current16thNote = 1,
-    futureTickTime = 0.0,
-    timerID = 0,
-    lookahead    = 0.1,
-    intervalTime = 25,
-    nextNoteTime = null, // when the next note is happening
-    currentNote  = 0, // the index of the current note from 0 - 15
-    intervalId   = null; // the id of the setInterval lookahead
-
-
 //====================== 303 ==========================//
 //monoSynth Arrays
 var pitchesArray = [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0, 7],

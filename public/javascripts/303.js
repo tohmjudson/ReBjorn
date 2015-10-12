@@ -1,4 +1,4 @@
-$(function() {
+
 //================= Watchers =======================//
   var $pitchmods = $('.pitchmod');
   $pitchmods.on('change', function(e) {
@@ -46,11 +46,17 @@ $(function() {
   $octaves.on('change', function(e) {
     octaveArray[ $(this).val() ] = $(this).is(':checked');
   });
+
+
+  var noteLength = (60/120)/4,
+
+
 //================= Schedule Note =======================//
-  schedule303 = function (current16thNote, time) {
-      currentNote = ++currentNote % pitchesArray.length;
-      monoSynth((pitchesArray[current16thNote-1]), time, current16thNote -1, mutedArray[current16thNote-1], accentArray[current16thNote-1], portamentoArray[current16thNote-1], octaveArray[current16thNote-1]);
-  }
+  // schedule303 = function (current16thNote, time) {
+  //     //currentNote = ++currentNote % pitchesArray.length;
+  //     monoSynth((pitchesArray[current16thNote-1]), time, current16thNote -1, mutedArray[current16thNote-1], accentArray[current16thNote-1], portamentoArray[current16thNote-1], octaveArray[current16thNote-1]);
+  // }
+
 //================= Make Note =======================//
   monoSynth = function (note, time, current, mute, accent, port, octave) {
     var oscillator = audioContext.createOscillator();
@@ -148,4 +154,4 @@ $(function() {
     var pitchAdder = 69 - parseInt(basePitch.value);
     return ( Math.pow(2, (note-pitchAdder+octave) / 12) ) * 440.0;
   }
-});
+
