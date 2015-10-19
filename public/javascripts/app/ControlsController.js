@@ -10,6 +10,8 @@ angular.module('reBjorn').controller('ControlsController', function($scope, $win
       //currentNote  = 0, // the index of the current note from 0 - 15
       intervalId   = null; // the id of the setInterval lookahead
 
+$scope.tempo = tempo;
+
 //================ Play =======================//
   $scope.play = function($event) {
       isPlaying = !isPlaying;

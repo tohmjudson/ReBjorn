@@ -22,7 +22,7 @@
         <span ng-class="isPlaying ? 'ion-pause' : 'ion-play'"></span>
       </a>
       <label id="tempoBox">Tempo:
-        <input class="number" id="tempo" type="number" min="30.0" max="185.0" step="1" value={{tempo}} ng-model='tempo'>
+        <input class="number" id="tempo" type="number" min="30.0" max="185.0" step="1" ng-model="tempo">
       </label>
     </div>
 
@@ -86,122 +86,25 @@
       </div>
       <br />
       <br />
-      <div class="sequencer" id="sequencer">
-        <div class="sequencer-steps ">
-          <input data-id="0" id="slider1" list="slider--1" class="number" type="number" min="0" max="12" value="0">
-          <input value="0" id="checkbox01" class="muteBox" type="checkbox">
-          <input value="0" id="checkbox01" class="accentBox" type="checkbox">
-          <input value="0" id="checkbox01" class="portamentoBox" type="checkbox">
-          <input value="0" id="checkbox01" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="1" id="slider2" list="slider--2" class="number" type="number" min="0" max="12" value="2">
-          <input value="1" id="checkbox02" class="muteBox" type="checkbox">
-          <input value="1" id="checkbox02" class="accentBox" type="checkbox">
-          <input value="1" id="checkbox02" class="portamentoBox" type="checkbox">
-          <input value="1" id="checkbox02" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="2" id="slider3" list="slider--3" class="number" type="number" min="0" max="12" value="4">
-          <input value="2" id="checkbox03" class="muteBox" type="checkbox">
-          <input value="2" id="checkbox03" class="accentBox" type="checkbox">
-          <input value="2" id="checkbox03" class="portamentoBox" type="checkbox">
-          <input value="2" id="checkbox03" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="3" id="slider4" list="slider--4" class="number" type="number" min="0" max="12" value="5">
-          <input value="3" id="checkbox04" class="muteBox" type="checkbox">
-          <input value="3" id="checkbox04" class="accentBox" type="checkbox">
-          <input value="3" id="checkbox04" class="portamentoBox" type="checkbox">
-          <input value="3" id="checkbox04" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="4" id="slider5" list="slider--5" class="number" type="number" min="0" max="12" value="7">
-          <input value="4" id="checkbox05" class="muteBox" type="checkbox">
-          <input value="4" id="checkbox05" class="accentBox" type="checkbox">
-          <input value="4" id="checkbox05" class="portamentoBox" type="checkbox">
-          <input value="4" id="checkbox05" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="5" id="slider6" list="slider--6" class="number" type="number" min="0" max="12" value="9">
-          <input value="5" id="checkbox06" class="muteBox" type="checkbox">
-          <input value="5" id="checkbox06" class="accentBox" type="checkbox">
-          <input value="5" id="checkbox06" class="portamentoBox" type="checkbox">
-          <input value="5" id="checkbox06" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="6" id="slider7" list="slider--7" class="number" type="number" min="0" max="12" value="11">
-          <input value="6" id="checkbox07" class="muteBox" type="checkbox">
-          <input value="6" id="checkbox07" class="accentBox" type="checkbox">
-          <input value="6" id="checkbox07" class="portamentoBox" type="checkbox">
-          <input value="6" id="checkbox07" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="7" id="slider8" list="slider--8" class="number" type="number" min="0" max="12" value="12">
-          <input value="7" id="checkbox08" class="muteBox" type="checkbox">
-          <input value="7" id="checkbox08" class="accentBox" type="checkbox">
-          <input value="7" id="checkbox08" class="portamentoBox" type="checkbox">
-          <input value="7" id="checkbox08" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="8" id="slider9" list="slider--9" class="number" type="number" min="0" max="12" value="11">
-          <input value="8" id="checkbox09" class="muteBox" type="checkbox">
-          <input value="8" id="checkbox09" class="accentBox" type="checkbox">
-          <input value="8" id="checkbox09" class="portamentoBox" type="checkbox">
-          <input value="8" id="checkbox09" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="9" id="slider10" list="slider--10" class="number" type="number" min="0" max="12" value="9">
-          <input value="9" id="checkbox10" class="muteBox" type="checkbox">
-          <input value="9" id="checkbox10" class="accentBox" type="checkbox">
-          <input value="9" id="checkbox10" class="portamentoBox" type="checkbox">
-          <input value="9" id="checkbox10" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="10" id="slider11" list="slider--11" class="number" type="number" min="0" max="12" value="7">
-          <input value="10" id="checkbox11" class="muteBox" type="checkbox">
-          <input value="10" id="checkbox11" class="accentBox" type="checkbox">
-          <input value="10" id="checkbox11" class="portamentoBox" type="checkbox">
-          <input value="10" id="checkbox11" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="11" id="slider12" list="slider--12" class="number" type="number" min="0" max="12" value="5">
-          <input value="11" id="checkbox12" class="muteBox" type="checkbox">
-          <input value="11" id="checkbox12" class="accentBox" type="checkbox">
-          <input value="11" id="checkbox12" class="portamentoBox" type="checkbox">
-          <input value="11" id="checkbox12" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="12" id="slider13" list="slider--13" class="number" type="number" min="0" max="12" value="4">
-          <input value="12" id="checkbox13" class="muteBox" type="checkbox">
-          <input value="12" id="checkbox13" class="accentBox" type="checkbox">
-          <input value="12" id="checkbox13" class="portamentoBox" type="checkbox">
-          <input value="12" id="checkbox13" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="13" id="slider14" list="slider--14" class="number" type="number" min="0" max="12" value="2">
-          <input value="13" id="checkbox14" class="muteBox" type="checkbox">
-          <input value="13" id="checkbox14" class="accentBox" type="checkbox">
-          <input value="13" id="checkbox14" class="portamentoBox" type="checkbox">
-          <input value="13" id="checkbox14" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="14" id="slider15" list="slider--15" class="number" type="number" min="0" max="12" value="0">
-          <input value="14" id="checkbox15" class="muteBox" type="checkbox">
-          <input value="14" id="checkbox15" class="accentBox" type="checkbox">
-          <input value="14" id="checkbox15" class="portamentoBox" type="checkbox">
-          <input value="14" id="checkbox15" class="octaveBox" type="checkbox">
-        </div>
-        <div class="sequencer-steps">
-          <input data-id="15" id="slider16" list="slider--16" class="number" type="number" min="0" max="12" value="7">
-          <input value="15" id="checkbox16" class="muteBox" type="checkbox">
-          <input value="15" id="checkbox16" class="accentBox" type="checkbox">
-          <input value="15" id="checkbox16" class="portamentoBox" type="checkbox">
-          <input value="15" id="checkbox16" class="octaveBox" type="checkbox">
-        </div>
-      </div>
 
-    </div>
+      <div class="sequencer" id="sequencer">
+        <step identifier="1" min="0" max="12" val="0"></step>
+        <step identifier="2" min="0" max="12" val="0"></step>
+        <step identifier="3" min="0" max="12" val="0"></step>
+        <step identifier="4" min="0" max="12" val="0"></step>
+        <step identifier="5" min="0" max="12" val="0"></step>
+        <step identifier="6" min="0" max="12" val="0"></step>
+        <step identifier="7" min="0" max="12" val="0"></step>
+        <step identifier="8" min="0" max="12" val="0"></step>
+        <step identifier="9" min="0" max="12" val="0"></step>
+        <step identifier="10" min="0" max="12" val="0"></step>
+        <step identifier="11" min="0" max="12" val="0"></step>
+        <step identifier="12" min="0" max="12" val="0"></step>
+        <step identifier="13" min="0" max="12" val="0"></step>
+        <step identifier="14" min="0" max="12" val="0"></step>
+        <step identifier="15" min="0" max="12" val="0"></step>
+        <step identifier="16" min="0" max="12" val="0"></step>    
+      </div>
 
     <!-- 808 -->
     <div class="full808 col-md-12 rack" ng-controller="EightOEightController">
@@ -737,6 +640,7 @@
   <script type="text/javascript" src="javascripts/app/ThreeOThreeController.js"></script>
   <script type="text/javascript" src="javascripts/app/NineONineController.js"></script>
   <script type="text/javascript" src="javascripts/app/ControlsController.js"></script>
+  <script type="text/javascript" src="javascripts/app/StepDirective.js"></script>
 
   <script type="text/javascript">
     $(window).load(function() {

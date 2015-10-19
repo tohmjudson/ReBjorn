@@ -53,7 +53,7 @@
 
 //================= Schedule Note =======================//
   // schedule303 = function (current16thNote, time) {
-  //     //currentNote = ++currentNote % pitchesArray.length;
+  //     currentNote = ++currentNote % pitchesArray.length;
   //     monoSynth((pitchesArray[current16thNote-1]), time, current16thNote -1, mutedArray[current16thNote-1], accentArray[current16thNote-1], portamentoArray[current16thNote-1], octaveArray[current16thNote-1]);
   // }
 
@@ -75,6 +75,7 @@
     var accented = accent;
     var portamento = port;
 
+    //console.log(mute);
 
     oscillator.type = type;
     if(octave){
