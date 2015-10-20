@@ -2,12 +2,12 @@
 var audioContext = new (window.AudioContext || window.webkitAudioContext);
 
 //====================== 303 ==========================//
-//monoSynth Arrays
-var pitchesArray = [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0, 7],
-    mutedArray = [true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false],
-    accentArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-    portamentoArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
-    octaveArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
+//  monoSynth Arrays
+// var pitchesArray = [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0, 7],
+//     mutedArray = [true,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false],
+//     accentArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+//     portamentoArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+//     octaveArray = [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false];
 
 //monoSynth
 var baseOctave = document.getElementById('baseOctave'),

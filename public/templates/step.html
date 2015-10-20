@@ -1,7 +1,7 @@
 <div class="sequencer-steps ">
   <input list="slider--{{identifier}}" class="number" type="number" min="{{min}}" max="{{max}}" ng-model="val">
   <!-- <input value="0" id="checkbox{{identifier}}" class="muteBox" type="checkbox"> -->
-  <input value="0" id="checkbox{{identifier}}" class="muteBox" type="checkbox">
+  <input value="0" id="checkbox{{identifier}}" class="muteBox" type="checkbox" ng-change="change()" ng-model="muteCheck">
   <input value="0" id="checkbox{{identifier}}" class="accentBox" type="checkbox">
   <input value="0" id="checkbox{{identifier}}" class="portamentoBox" type="checkbox">
   <input value="0" id="checkbox{{identifier}}" class="octaveBox" type="checkbox">
