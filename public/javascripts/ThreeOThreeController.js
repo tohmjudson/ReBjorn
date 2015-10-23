@@ -1,3 +1,48 @@
+angular.module('reBjorn').controller('ThreeOThreeController', function($scope, GlobalsService) {
+  var audioContext = GlobalsService.audioContext;
+  var current16thNote = GlobalsService.current16thNote;
+  var serial = GlobalsService.serial;
+
+  var baseOctave = document.getElementById('baseOctave'),
+      baseOctaveDisplay = document.getElementById('baseOctaveDisplay'),
+      basePitch = document.getElementById('basePitch'),
+      basePitchDisplay = document.getElementById('basePitchDisplay'),
+      filter01 = document.getElementById('filter01'),
+      filter01Display = document.getElementById('filter01Display'),
+      delayTime = document.getElementById('delayTime'),
+      delayTimeDisplay = document.getElementById('delayTimeDisplay'),
+      delayFeedback = document.getElementById('delayFeedback'),
+      delayFeedbackDisplay = document.getElementById('delayFeedbackDisplay'),
+      delayCutoff = document.getElementById('delayCutoff'),
+      delayCutoffDisplay = document.getElementById('delayCutoffDisplay'),
+      distortion = document.getElementById('distortion'),
+      distortionDisplay = document.getElementById('distortionDisplay'),
+      masterGain303 = document.getElementById('masterGain303'),
+      masterGain303Display = document.getElementById('masterGain303Display'),
+      noteLength = (60/GlobalsService.tempo)/4,
+      attack = 1/128;
+
+
+
+$scope.steps = [
+  {pitch: 0, muted: true, accented: false, portamento: false, octave: false},
+  {pitch: 2, muted: false, accented: true, portamento: false, octave: false},
+  {pitch: 4, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 5, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 7, muted: true, accented: false, portamento: false, octave: false},
+  {pitch: 9, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 11, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 12, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 11, muted: true, accented: false, portamento: false, octave: false},
+  {pitch: 9, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 7, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 5, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 4, muted: true, accented: false, portamento: false, octave: false},
+  {pitch: 2, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 0, muted: false, accented: false, portamento: false, octave: false},
+  {pitch: 7, muted: false, accented: false, portamento: false, octave: false}
+  ];
+
 
 //================= Watchers =======================//
   var $pitchmods = $('.pitchmod');
@@ -22,41 +67,10 @@
     masterGain303Display.innerHTML = pitchData.masterGain303;
   });
 
-  var $numbers = $('.number');
-  $numbers.on('change', function(e) {
-    pitchesArray[ $(this).data("id") ] = $(this).val();
-  });
-
-  var $mutes = $('.muteBox:checkbox');
-  $mutes.on('change', function(e) {
-    mutedArray[ $(this).val() ] = $(this).is(':checked');
-  });
-
-  var $accents = $('.accentBox:checkbox');
-  $accents.on('change', function(e) {
-    accentArray[ $(this).val() ] = $(this).is(':checked');
-  });
-
-  var $portamentos = $('.portamentoBox:checkbox');
-  $portamentos.on('change', function(e) {
-    portamentoArray[ $(this).val() ] = $(this).is(':checked');
-  });
-
-  var $octaves = $('.octaveBox:checkbox');
-  $octaves.on('change', function(e) {
-    octaveArray[ $(this).val() ] = $(this).is(':checked');
-  });
-
-
-  var noteLength = (60/120)/4,
-
-
 //================= Schedule Note =======================//
-  // schedule303 = function (current16thNote, time) {
-  //     currentNote = ++currentNote % pitchesArray.length;
-  //     monoSynth((pitchesArray[current16thNote-1]), time, current16thNote -1, mutedArray[current16thNote-1], accentArray[current16thNote-1], portamentoArray[current16thNote-1], octaveArray[current16thNote-1]);
-  // }
-
+  schedule303 = function (current16thNote, time) {
+      monoSynth(($scope.steps[current16thNote-1].pitch), time, current16thNote-1, $scope.steps[current16thNote-1].muted, $scope.steps[current16thNote-1].accented, $scope.steps[current16thNote-1].portamento, $scope.steps[current16thNote-1].octave);
+  }
 //================= Make Note =======================//
   monoSynth = function (note, time, current, mute, accent, port, octave) {
     var oscillator = audioContext.createOscillator();
@@ -71,11 +85,12 @@
     var waveShaper = audioContext.createWaveShaper();
     var type = $("#waveType").val();
     var filter01Freq= filter01.value;
+
     var muted = mute;
     var accented = accent;
     var portamento = port;
 
-    //console.log(mute);
+
 
     oscillator.type = type;
     if(octave){
@@ -94,7 +109,7 @@
     filterNode.connect(gainNode);
 
     gainNode.gain.setValueAtTime(0, time);
-    gainNode.gain.linearRampToValueAtTime(1, time + attack);
+    gainNode.gain.linearRampToValueAtTime(1, time + .05);
 
     if(portamento){
       gainNode.gain.linearRampToValueAtTime(0, time + ( noteLength + noteLength));
@@ -134,6 +149,7 @@
     masterGainNode.connect(audioContext.destination);
   }
 
+//=== Distortion Effect ===//
   function makeDistortionCurve(amount) {
     var k = typeof amount === 'number' ? amount : 50,
         n_samples = 44100,
@@ -148,11 +164,11 @@
     }
     return curve;
   }
-
+//=== Convert MIDI Note to Frequency ===//
   mtof = function (note) {
     var octaveMultiplier = baseOctave.value;
     var octave = octaveMultiplier * 12;
     var pitchAdder = 69 - parseInt(basePitch.value);
     return ( Math.pow(2, (note-pitchAdder+octave) / 12) ) * 440.0;
   }
-
+});//===/angular.module ===//

@@ -1,4 +1,6 @@
 function audioFileLoader(fileDirectory) {
+    var audioContext = GlobalsService.audioContext;
+
     var soundObj = {};
     soundObj.fileDirectory = fileDirectory;
 
