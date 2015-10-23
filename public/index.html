@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="reBjorn">
+
 <head>
   <meta charset="utf-8">
   <title>ReBjorn</title>
@@ -15,737 +16,103 @@
 
 <body>
   <div class="container">
-  <div class="rack play-controls">
+    <div class="rack play-controls" ng-controller="TransportController">
       <h1>ReBjorn</h1>
-      <a class="play-pause"><span class="ion-play"></span></a>
-      <label id="tempoBox">Tempo:   <input class="number" id="tempo" type="number" min="30.0" max="185.0" step="1" value="120"></label>
-  </div>
-
-<!-- 303 -->
-  <div class="rack">
-      <h3>303</h3>
-
-
-
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#Modal303">Settings</button>
-          <div class="modal fade" id="Modal303" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">303 Settings</h4>
-                </div>
-                <div class="modal-body">
-                Wave Type: 
-                <select id="waveType">
-                    <option>sine</option>
-                    <option>square</option>
-                    <option>sawtooth</option>
-                    <option>triangle</option>
-                </select> 
-                <br />
-                <br />
-                    <label for="baseOctave"> Base Octave <span id='baseOctaveDisplay'>4</span>
-                      <input type="range" id="baseOctave" name="baseOctave-slider" min="2" max="7" step="1" value="4" style="float:right" class="pitchmod">
-                  </label>
-                  <label for="basePitch"> Base Pitch <span id='basePitchDisplay'>C</span>
-                      <input type="range" id="basePitch" name="basePitch-slider" min="0" max="12" step="1" value="0" style="float:right" class="pitchmod">
-                  </label>
-                  <label for="filter01"> Lowpass Filter <span id='filter01Display'>20000</span>
-                      <input type="range" id="filter01" name="filter01-slider" min="20" max="20000" step="1" value="20000" style="float:right" class="pitchmod">
-                  </label> 
-                  <label for="delayTime"> Delay Time <span id='delayTimeDisplay'>0.75</span>
-                      <input type="range" id="delayTime" name="delayTime-slider" min="0" max="2" step="0.05" value="0.75" style="float:right" class="pitchmod">
-                  </label>
-                  <label for="delayFeedback"> Delay Feedback <span id='delayFeedbackDisplay'>0.35</span>
-                      <input type="range" id="delayFeedback" name="delayFeedback-slider" min="0" max="0.8" step="0.01" value="0.35" style="float:right" class="pitchmod">
-                  </label>
-                  <label for="delayCutoff"> Delay Cutoff <span id='delayCutoffDisplay'>20000</span>
-                      <input type="range" id="delayCutoff" name="delayCutoff-slider" min="20" max="20000" step="1" value="20000" style="float:right" class="pitchmod">
-                  </label>
-                    <label for="distortion"> Distortion <span id='distortionDisplay'>0.35</span>
-                      <input type="range" id="distortion" name="distortion-slider" min="0" max="0.99" step="0.01" value="0.35" style="float:right" class="pitchmod">
-                  </label>
-                  <label for="masterGain303"> 303 Gain <span id='masterGain303Display'>0.5</span>
-                      <input type="range" id="masterGain303" name="masterGain303-slider" min="0" max="1.0" step="0.01" value=".5" style="float:right" class="pitchmod">
-                  </label>
-                  <br />
-                </div>
-              </div>
-            </div>
-          </div>
-    <br />   
-  <br />
-        <div class="sequencer" id="sequencer">
-          <div class="sequencer-steps ">
-            <input data-id="0" id="slider1" list="slider--1" class="number" type="number" min="0" max="12" value="0">
-            <input value="0" id="checkbox01" class="muteBox" type="checkbox">
-            <input value="0" id="checkbox01" class="accentBox" type="checkbox" >
-            <input value="0" id="checkbox01" class="portamentoBox" type="checkbox" >
-            <input value="0" id="checkbox01" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="1" id="slider2" list="slider--2" class="number" type="number" min="0" max="12" value="2">
-            <input value="1" id="checkbox02" class="muteBox" type="checkbox">
-            <input value="1" id="checkbox02" class="accentBox" type="checkbox" >
-            <input value="1" id="checkbox02" class="portamentoBox" type="checkbox" >
-            <input value="1" id="checkbox02" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="2" id="slider3" list="slider--3" class="number" type="number" min="0" max="12" value="4">
-            <input value="2" id="checkbox03" class="muteBox" type="checkbox">
-            <input value="2" id="checkbox03" class="accentBox" type="checkbox" >
-            <input value="2" id="checkbox03" class="portamentoBox" type="checkbox" >
-            <input value="2" id="checkbox03" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="3" id="slider4" list="slider--4" class="number" type="number" min="0" max="12" value="5">
-            <input valued="3" id="checkbox04" class="muteBox" type="checkbox">
-            <input value="3" id="checkbox04" class="accentBox" type="checkbox" >
-            <input value="3" id="checkbox04" class="portamentoBox" type="checkbox" >
-            <input value="3" id="checkbox04" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="4" id="slider5" list="slider--5" class="number" type="number" min="0" max="12" value="7">
-            <input value="4" id="checkbox05" class="muteBox" type="checkbox">
-            <input value="4" id="checkbox05" class="accentBox" type="checkbox" >
-            <input value="4" id="checkbox05" class="portamentoBox" type="checkbox" >
-            <input value="4" id="checkbox05" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="5" id="slider6" list="slider--6" class="number" type="number" min="0" max="12" value="9">
-            <input value="5" id="checkbox06" class="muteBox" type="checkbox">
-            <input value="5" id="checkbox06" class="accentBox" type="checkbox" >
-            <input value="5" id="checkbox06" class="portamentoBox" type="checkbox" >
-            <input value="5" id="checkbox06" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="6" id="slider7" list="slider--7" class="number" type="number" min="0" max="12" value="11">
-            <input value="6" id="checkbox07" class="muteBox" type="checkbox">
-            <input value="6" id="checkbox07" class="accentBox" type="checkbox" >
-            <input value="6" id="checkbox07" class="portamentoBox" type="checkbox" >
-            <input value="6" id="checkbox07" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="7" id="slider8" list="slider--8" class="number" type="number" min="0" max="12" value="12">
-            <input value="7" id="checkbox08" class="muteBox" type="checkbox">
-            <input value="7" id="checkbox08" class="accentBox" type="checkbox" >
-            <input value="7" id="checkbox08" class="portamentoBox" type="checkbox" >
-            <input value="7" id="checkbox08" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="8" id="slider9" list="slider--9" class="number" type="number" min="0" max="12" value="11">
-            <input value="8" id="checkbox09" class="muteBox" type="checkbox">
-            <input value="8" id="checkbox09" class="accentBox" type="checkbox" >
-            <input value="8" id="checkbox09" class="portamentoBox" type="checkbox" >
-            <input value="8" id="checkbox09" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="9" id="slider10" list="slider--10" class="number" type="number" min="0" max="12" value="9">
-            <input value="9" id="checkbox10" class="muteBox" type="checkbox">
-            <input value="9" id="checkbox10" class="accentBox" type="checkbox" >
-            <input value="9" id="checkbox10" class="portamentoBox" type="checkbox" >
-            <input value="9" id="checkbox10" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="10" id="slider11" list="slider--11" class="number" type="number" min="0" max="12" value="7">
-            <input value="10" id="checkbox11" class="muteBox" type="checkbox">
-            <input value="10" id="checkbox11" class="accentBox" type="checkbox" >
-            <input value="10" id="checkbox11" class="portamentoBox" type="checkbox" >
-            <input value="10" id="checkbox11" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="11" id="slider12" list="slider--12" class="number" type="number" min="0" max="12" value="5">
-            <input value="11" id="checkbox12" class="muteBox" type="checkbox">
-            <input value="11" id="checkbox12" class="accentBox" type="checkbox" >
-            <input value="11" id="checkbox12" class="portamentoBox" type="checkbox" >
-            <input value="11" id="checkbox12" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="12" id="slider13" list="slider--13" class="number" type="number" min="0" max="12" value="4">
-            <input value="12" id="checkbox13" class="muteBox" type="checkbox">
-            <input value="12" id="checkbox13" class="accentBox" type="checkbox" >
-            <input value="12" id="checkbox13" class="portamentoBox" type="checkbox" >
-            <input value="12" id="checkbox13" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="13" id="slider14" list="slider--14" class="number" type="number" min="0" max="12" value="2">
-            <input value="13" id="checkbox14" class="muteBox" type="checkbox">
-            <input value="13" id="checkbox14" class="accentBox" type="checkbox" >
-            <input value="13" id="checkbox14" class="portamentoBox" type="checkbox" >
-            <input value="13" id="checkbox14" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="14" id="slider15" list="slider--15" class="number" type="number" min="0" max="12" value="0">
-            <input value="14" id="checkbox15" class="muteBox" type="checkbox">
-            <input value="14" id="checkbox15" class="accentBox" type="checkbox" >
-            <input value="14" id="checkbox15" class="portamentoBox" type="checkbox" >
-            <input value="14" id="checkbox15" class="octaveBox" type="checkbox" >
-          </div>
-          <div class="sequencer-steps">
-            <input data-id="15" id="slider16" list="slider--16" class="number" type="number" min="0" max="12" value="7">
-            <input value="15" id="checkbox16" class="muteBox" type="checkbox">
-            <input value="15" id="checkbox16" class="accentBox" type="checkbox" >
-            <input value="15" id="checkbox16" class="portamentoBox" type="checkbox" >
-            <input value="15" id="checkbox16" class="octaveBox" type="checkbox" >
-          </div>
-        </div>
-
-  </div>
-
-<!-- 808 -->
-    <div class="full808 col-md-12 rack">
-    <h3>808</h3>
-  <div class="filter808">
-      <div class="modals-808">
-        <a data-filter=".bassdrum">Bass</a><br/>
-          <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#bassdrum808Modal">Settings</button>
-          <div class="modal fade" id="bassdrum808Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Bass Drum Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                    <select class="loadAudioFile" id="BD808">
-                      <option value="sounds/808/BD01.wav">BD01</option>
-                      <option value="sounds/808/BD02.wav">BD02</option>
-                      <option value="sounds/808/BD03.wav">BD03</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="kick808Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="kick808pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="kick808Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="modals-808">
-        <a data-filter=".snare">Snare</a><br/>
-                  <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#snare808Modal">Settings</button>
-          <div class="modal fade" id="snare808Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Snare Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                  <select class="loadAudioFile" id="Snr808">
-                      <option value="sounds/808/Snr01.wav">Snr01</option>
-                      <option value="sounds/808/Snr02.wav">Snr02</option>
-                      <option value="sounds/808/Snr03.wav">Snr03</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="snare808Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="snare808pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="snare808Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="modals-808">
-        <a data-filter=".hihat">HiHat</a><br/>
-                  <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#hihat808Modal">Settings</button>
-          <div class="modal fade" id="hihat808Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">HiHat Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                  <select class="loadAudioFile" id="HH808">
-                      <option value="sounds/808/HH01.wav">HH01</option>
-                      <option value="sounds/808/HHo01.wav">HHo01</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="hihat808Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="hihat808pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="hihat808Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="modals-808">
-        <a data-filter=".shaker">Accents</a><br/>
-                  <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#shaker808Modal">Settings</button>
-          <div class="modal fade" id="shaker808Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Accent Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                  <select class="loadAudioFile" id="ACC808">
-                      <option value="sounds/808/CL01.wav">CL01</option>
-                      <option value="sounds/808/MA01.wav">MA01</option>
-                      <option value="sounds/808/Rim01.wav">Rim01</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="shaker808Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="shaker808pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="shaker808Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-
+      <a class="play-pause" ng-click="play($event)">
+        <span ng-class="isPlaying ? 'ion-pause' : 'ion-play'"></span>
+      </a>
+      <label id="tempoBox">Tempo:
+        <input class="number" ng-model="tempo" type="number" min="30.0" max="185.0" step="1" value="120">
+      </label>
     </div>
 
-      <div class="tracks 808Container">
 
-          <div id="track-1-container" class="bassdrum">
-              <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth1"></div>
-              <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth2"></div>
-              <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth3"></div>
-              <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth4"></div>
-              <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth5"></div>
-              <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth6"></div>
-              <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth7"></div>
-              <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth8"></div>
-              <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth9"></div>
-              <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth10"></div>
-              <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth11"></div>
-              <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth12"></div>
-              <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth13"></div>
-              <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth14"></div>
-              <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth15"></div>
-              <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth16"></div>
-          </div>
+  </div>
+  <!--./container-->
 
-          <div id="track-2-container" class="snare">
-              <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth1"></div>
-              <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth2"></div>
-              <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth3"></div>
-              <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth4"></div>
-              <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth5"></div>
-              <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth6"></div>
-              <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth7"></div>
-              <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth8"></div>
-              <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth9"></div>
-              <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth10"></div>
-              <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth11"></div>
-              <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth12"></div>
-              <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth13"></div>
-              <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth14"></div>
-              <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth15"></div>
-              <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth16"></div>
-          </div>
+  <!-- SCRIPTING -->
+  <!-- EXTERNAL -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="javascripts/isotope.pkgd.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 
-          <div id="track-3-container" class="hihat">
-              <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth1"></div>
-              <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth2"></div>
-              <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth3"></div>
-              <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth4"></div>
-              <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth5"></div>
-              <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth6"></div>
-              <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth7"></div>
-              <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth8"></div>
-              <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth9"></div>
-              <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth10"></div>
-              <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth11"></div>
-              <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth12"></div>
-              <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth13"></div>
-              <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth14"></div>
-              <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth15"></div>
-              <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth16"></div>
-          </div>
+  <!-- BOOTSTRAP -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-          <div id="track-4-container" class="shaker">
-              <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth1"></div>
-              <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth2"></div>
-              <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth3"></div>
-              <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth4"></div>
-              <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth5"></div>
-              <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth6"></div>
-              <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth7"></div>
-              <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth8"></div>
-              <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth9"></div>
-              <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth10"></div>
-              <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth11"></div>
-              <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth12"></div>
-              <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth13"></div>
-              <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth14"></div>
-              <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth15"></div>
-              <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth16"></div>
-          </div>
-        </div>
-    </div><!--./808 -->
-
-<!-- 909 -->
-    <div class="full909 col-md-12 rack">
-    <h3>909</h3>
-
-    <div class="filter909">
-      <div class="modals-808">
-        <a data-filter=".bassdrum">Bass</a><br/>
-          <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#bassdrum909Modal">Settings</button>
-          <div class="modal fade" id="bassdrum909Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Bass Drum Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                  <select class="loadAudioFile" id="BD909">
-                      <option value="sounds/909/BD/BT0A0A7.WAV">BD01</option>
-                      <option value="sounds/909/BD/BT0A0D0.WAV">BD02</option>
-                      <option value="sounds/909/BD/BT0A0D3.WAV">BD03</option>
-                      <option value="sounds/909/BD/BT0A0DA.WAV">BD04</option>
-                      <option value="sounds/909/BD/BT0AAD0.WAV">BD05</option>
-                      <option value="sounds/909/BD/BT0AADA.WAV">BD06</option>
-                      <option value="sounds/909/BD/BT3A0D0.WAV">BD07</option>
-                      <option value="sounds/909/BD/BT3A0D3.WAV">BD08</option>
-                      <option value="sounds/909/BD/BT3A0D7.WAV">BD09</option>
-                      <option value="sounds/909/BD/BT3A0DA.WAV">BD10</option>
-                      <option value="sounds/909/BD/BT3AAD0.WAV">BD11</option>
-                      <option value="sounds/909/BD/BT3AADA.WAV">BD12</option>
-                      <option value="sounds/909/BD/BT7A0D0.WAV">BD13</option>
-                      <option value="sounds/909/BD/BT7A0D3.WAV">BD14</option>
-                      <option value="sounds/909/BD/BT7A0D7.WAV">BD15</option>
-                      <option value="sounds/909/BD/BT7A0DA.WAV">BD16</option>
-                      <option value="sounds/909/BD/BT7AAD0.WAV">BD17</option>
-                      <option value="sounds/909/BD/BT7AADA.WAV">BD18</option>
-                      <option value="sounds/909/BD/BTAA0D0.WAV">BD19</option>
-                      <option value="sounds/909/BD/BTAA0D3.WAV">BD20</option>
-                      <option value="sounds/909/BD/BTAA0D7.WAV">BD21</option>
-                      <option value="sounds/909/BD/BTAA0DA.WAV">BD22</option>
-                      <option value="sounds/909/BD/BTAAAD0.WAV">BD23</option>
-                      <option value="sounds/909/BD/BTAAADA.WAV">BD24</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="kick909Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="kick909pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="kick909Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="modals-808">
-        <a data-filter=".snare">Snare</a><br/>
-                  <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#snare909Modal">Settings</button>
-          <div class="modal fade" id="snare909Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Snare Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                    <select class="loadAudioFile" id="Snr909">
-                      <option value="sounds/909/SNR/ST0T0S3.WAV">SNR01</option>
-                      <option value="sounds/909/SNR/ST0T0S7.WAV">SNR02</option>
-                      <option value="sounds/909/SNR/ST0T0SA.WAV">SNR03</option>
-                      <option value="sounds/909/SNR/ST0T3S3.WAV">SNR04</option>
-                      <option value="sounds/909/SNR/ST0T3S7.WAV">SNR05</option>
-                      <option value="sounds/909/SNR/ST0T3SA.WAV">SNR06</option>
-                      <option value="sounds/909/SNR/ST0T7S3.WAV">SNR07</option>
-                      <option value="sounds/909/SNR/ST0T7S7.WAV">SNR08</option>
-                      <option value="sounds/909/SNR/ST0T7SA.WAV">SNR09</option>
-                      <option value="sounds/909/SNR/ST0TAS3.WAV">SNR10</option>
-                      <option value="sounds/909/SNR/ST0TAS7.WAV">SNR11</option>
-                      <option value="sounds/909/SNR/ST0TASA.WAV">SNR12</option>
-                      <option value="sounds/909/SNR/ST3T0S0.WAV">SNR13</option>
-                      <option value="sounds/909/SNR/ST3T0S3.WAV">SNR14</option>
-                      <option value="sounds/909/SNR/ST3T0S7.WAV">SNR15</option>
-                      <option value="sounds/909/SNR/ST3T0SA.WAV">SNR16</option>
-                      <option value="sounds/909/SNR/ST3T3S3.WAV">SNR17</option>
-                      <option value="sounds/909/SNR/ST3T3S7.WAV">SNR18</option>
-                      <option value="sounds/909/SNR/ST3T3SA.WAV">SNR19</option>
-                      <option value="sounds/909/SNR/ST3T7S3.WAV">SNR20</option>
-                      <option value="sounds/909/SNR/ST3T7S7.WAV">SNR21</option>
-                      <option value="sounds/909/SNR/ST3T7SA.WAV">SNR22</option>
-                      <option value="sounds/909/SNR/ST3TAS3.WAV">SNR23</option>
-                      <option value="sounds/909/SNR/ST3TAS7.WAV">SNR24</option>
-                      <option value="sounds/909/SNR/ST3TASA.WAV">SNR25</option>
-                      <option value="sounds/909/SNR/ST7T0S0.WAV">SNR26</option>
-                      <option value="sounds/909/SNR/ST7T0S3.WAV">SNR27</option>
-                      <option value="sounds/909/SNR/ST7T0S7.WAV">SNR28</option>
-                      <option value="sounds/909/SNR/ST7T0SA.WAV">SNR29</option>
-                      <option value="sounds/909/SNR/ST7T3S3.WAV">SNR30</option>
-                      <option value="sounds/909/SNR/ST7T3S7.WAV">SNR31</option>
-                      <option value="sounds/909/SNR/ST7T3SA.WAV">SNR32</option>
-                      <option value="sounds/909/SNR/ST7T7S3.WAV">SNR33</option>
-                      <option value="sounds/909/SNR/ST7T7S7.WAV">SNR34</option>
-                      <option value="sounds/909/SNR/ST7T7SA.WAV">SNR35</option>
-                      <option value="sounds/909/SNR/ST7TAS3.WAV">SNR36</option>
-                      <option value="sounds/909/SNR/ST7TAS7.WAV">SNR37</option>
-                      <option value="sounds/909/SNR/ST7TASA.WAV">SNR38</option>
-                      <option value="sounds/909/SNR/STAT0S0.WAV">SNR39</option>
-                      <option value="sounds/909/SNR/STAT0S3.WAV">SNR40</option>
-                      <option value="sounds/909/SNR/STAT0S7.WAV">SNR41</option>
-                      <option value="sounds/909/SNR/STAT0SA.WAV">SNR42</option>
-                      <option value="sounds/909/SNR/STAT3S3.WAV">SNR43</option>
-                      <option value="sounds/909/SNR/STAT3S7.WAV">SNR44</option>
-                      <option value="sounds/909/SNR/STAT3SA.WAV">SNR45</option>
-                      <option value="sounds/909/SNR/STAT7S3.WAV">SNR46</option>
-                      <option value="sounds/909/SNR/STAT7S7.WAV">SNR47</option>
-                      <option value="sounds/909/SNR/STAT7SA.WAV">SNR48</option>
-                      <option value="sounds/909/SNR/STATAS3.WAV">SNR49</option>
-                      <option value="sounds/909/SNR/STATAS7.WAV">SNR50</option>
-                      <option value="sounds/909/SNR/STATASA.WAV">SNR51</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="snare909Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="snare909pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="snare909Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="modals-808">
-        <a data-filter=".hihat">HiHat</a><br/>
-                  <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#hihat909Modal">Settings</button>
-          <div class="modal fade" id="hihat909Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">HiHat Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                    <select class="loadAudioFile" id="HH909">
-                      <option value="sounds/909/HHCL/HHCD0.WAV">HHCD0</option>
-                      <option value="sounds/909/HHCL/HHCD2.WAV">HHCD2</option>
-                      <option value="sounds/909/HHCL/HHCD4.WAV">HHCD4</option>
-                      <option value="sounds/909/HHCL/HHCD6.WAV">HHCD6</option>
-                      <option value="sounds/909/HHCL/HHCD8.WAV">HHCD8</option>
-                      <option value="sounds/909/HHCL/HHCDA.WAV">HHCDA</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="hihat909Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="hihat909pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="hihat909Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-
-      <div class="modals-808">
-        <a data-filter=".shaker">Accents</a><br/>
-                  <!-- Modal -->
-          <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#shaker909Modal">Settings</button>
-          <div class="modal fade" id="shaker909Modal" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Accent Settings</h4>
-                </div>
-                <div class="modal-body">
-                  <p>Sound Selection
-                    <select class="loadAudioFile" id="ACC909">
-                      <option value="sounds/909/ACC/CLOP1.WAV">CLOP1</option>
-                      <option value="sounds/909/ACC/CLOP2.WAV">CLOP2</option>
-                      <option value="sounds/909/ACC/CLOP3.WAV">CLOP3</option>
-                      <option value="sounds/909/ACC/CLOP4.WAV">CLOP4</option>
-                      <option value="sounds/909/ACC/OPCL1.WAV">OPCL1</option>
-                      <option value="sounds/909/ACC/OPCL2.WAV">OPCL2</option>
-                      <option value="sounds/909/ACC/OPCL3.WAV">OPCL3</option>
-                      <option value="sounds/909/ACC/OPCL4.WAV">OPCL4</option>
-                    </select>
-                  </p>
-                  <p>Volume</p><input type="range" min="0" max="100" value="100" id="shaker909Gain" class="gain">
-                  <p>Panning</p><input type="range" min="-1" max="1" step="any" id="shaker909pan" class="pan">
-                  <p>Pitch</p><input type="range" min="0" max="2" step="any" id="shaker909Rate" class="playbackRate">
-                </div>
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
-      <div class="tracks 909Container">
-
-          <div id="track-1-container" class="bassdrum">
-              <div class="grid909 grid909-track1 grid909-beat1" id="grid909BeatTrack1-Rhyth1"></div>
-              <div class="grid909 grid909-track1 grid909-beat1" id="grid909BeatTrack1-Rhyth2"></div>
-              <div class="grid909 grid909-track1 grid909-beat1" id="grid909BeatTrack1-Rhyth3"></div>
-              <div class="grid909 grid909-track1 grid909-beat1" id="grid909BeatTrack1-Rhyth4"></div>
-              <div class="grid909 grid909-track1 grid909-beat2" id="grid909BeatTrack1-Rhyth5"></div>
-              <div class="grid909 grid909-track1 grid909-beat2" id="grid909BeatTrack1-Rhyth6"></div>
-              <div class="grid909 grid909-track1 grid909-beat2" id="grid909BeatTrack1-Rhyth7"></div>
-              <div class="grid909 grid909-track1 grid909-beat2" id="grid909BeatTrack1-Rhyth8"></div>
-              <div class="grid909 grid909-track1 grid909-beat3" id="grid909BeatTrack1-Rhyth9"></div>
-              <div class="grid909 grid909-track1 grid909-beat3" id="grid909BeatTrack1-Rhyth10"></div>
-              <div class="grid909 grid909-track1 grid909-beat3" id="grid909BeatTrack1-Rhyth11"></div>
-              <div class="grid909 grid909-track1 grid909-beat3" id="grid909BeatTrack1-Rhyth12"></div>
-              <div class="grid909 grid909-track1 grid909-beat4" id="grid909BeatTrack1-Rhyth13"></div>
-              <div class="grid909 grid909-track1 grid909-beat4" id="grid909BeatTrack1-Rhyth14"></div>
-              <div class="grid909 grid909-track1 grid909-beat4" id="grid909BeatTrack1-Rhyth15"></div>
-              <div class="grid909 grid909-track1 grid909-beat4" id="grid909BeatTrack1-Rhyth16"></div>
-          </div>
-
-          <div id="track-2-container" class="snare">
-              <div class="grid909 grid909-track2 grid909-beat1" id="grid909BeatTrack2-Rhyth1"></div>
-              <div class="grid909 grid909-track2 grid909-beat1" id="grid909BeatTrack2-Rhyth2"></div>
-              <div class="grid909 grid909-track2 grid909-beat1" id="grid909BeatTrack2-Rhyth3"></div>
-              <div class="grid909 grid909-track2 grid909-beat1" id="grid909BeatTrack2-Rhyth4"></div>
-              <div class="grid909 grid909-track2 grid909-beat2" id="grid909BeatTrack2-Rhyth5"></div>
-              <div class="grid909 grid909-track2 grid909-beat2" id="grid909BeatTrack2-Rhyth6"></div>
-              <div class="grid909 grid909-track2 grid909-beat2" id="grid909BeatTrack2-Rhyth7"></div>
-              <div class="grid909 grid909-track2 grid909-beat2" id="grid909BeatTrack2-Rhyth8"></div>
-              <div class="grid909 grid909-track2 grid909-beat3" id="grid909BeatTrack2-Rhyth9"></div>
-              <div class="grid909 grid909-track2 grid909-beat3" id="grid909BeatTrack2-Rhyth10"></div>
-              <div class="grid909 grid909-track2 grid909-beat3" id="grid909BeatTrack2-Rhyth11"></div>
-              <div class="grid909 grid909-track2 grid909-beat3" id="grid909BeatTrack2-Rhyth12"></div>
-              <div class="grid909 grid909-track2 grid909-beat4" id="grid909BeatTrack2-Rhyth13"></div>
-              <div class="grid909 grid909-track2 grid909-beat4" id="grid909BeatTrack2-Rhyth14"></div>
-              <div class="grid909 grid909-track2 grid909-beat4" id="grid909BeatTrack2-Rhyth15"></div>
-              <div class="grid909 grid909-track2 grid909-beat4" id="grid909BeatTrack2-Rhyth16"></div>
-          </div>
-
-          <div id="track-3-container" class="hihat">
-              <div class="grid909 grid909-track3 grid909-beat1" id="grid909BeatTrack3-Rhyth1"></div>
-              <div class="grid909 grid909-track3 grid909-beat1" id="grid909BeatTrack3-Rhyth2"></div>
-              <div class="grid909 grid909-track3 grid909-beat1" id="grid909BeatTrack3-Rhyth3"></div>
-              <div class="grid909 grid909-track3 grid909-beat1" id="grid909BeatTrack3-Rhyth4"></div>
-              <div class="grid909 grid909-track3 grid909-beat2" id="grid909BeatTrack3-Rhyth5"></div>
-              <div class="grid909 grid909-track3 grid909-beat2" id="grid909BeatTrack3-Rhyth6"></div>
-              <div class="grid909 grid909-track3 grid909-beat2" id="grid909BeatTrack3-Rhyth7"></div>
-              <div class="grid909 grid909-track3 grid909-beat2" id="grid909BeatTrack3-Rhyth8"></div>
-              <div class="grid909 grid909-track3 grid909-beat3" id="grid909BeatTrack3-Rhyth9"></div>
-              <div class="grid909 grid909-track3 grid909-beat3" id="grid909BeatTrack3-Rhyth10"></div>
-              <div class="grid909 grid909-track3 grid909-beat3" id="grid909BeatTrack3-Rhyth11"></div>
-              <div class="grid909 grid909-track3 grid909-beat3" id="grid909BeatTrack3-Rhyth12"></div>
-              <div class="grid909 grid909-track3 grid909-beat4" id="grid909BeatTrack3-Rhyth13"></div>
-              <div class="grid909 grid909-track3 grid909-beat4" id="grid909BeatTrack3-Rhyth14"></div>
-              <div class="grid909 grid909-track3 grid909-beat4" id="grid909BeatTrack3-Rhyth15"></div>
-              <div class="grid909 grid909-track3 grid909-beat4" id="grid909BeatTrack3-Rhyth16"></div>
-          </div>
-
-          <div id="track-4-container" class="shaker">
-              <div class="grid909 grid909-track4 grid909-beat1" id="grid909BeatTrack4-Rhyth1"></div>
-              <div class="grid909 grid909-track4 grid909-beat1" id="grid909BeatTrack4-Rhyth2"></div>
-              <div class="grid909 grid909-track4 grid909-beat1" id="grid909BeatTrack4-Rhyth3"></div>
-              <div class="grid909 grid909-track4 grid909-beat1" id="grid909BeatTrack4-Rhyth4"></div>
-              <div class="grid909 grid909-track4 grid909-beat2" id="grid909BeatTrack4-Rhyth5"></div>
-              <div class="grid909 grid909-track4 grid909-beat2" id="grid909BeatTrack4-Rhyth6"></div>
-              <div class="grid909 grid909-track4 grid909-beat2" id="grid909BeatTrack4-Rhyth7"></div>
-              <div class="grid909 grid909-track4 grid909-beat2" id="grid909BeatTrack4-Rhyth8"></div>
-              <div class="grid909 grid909-track4 grid909-beat3" id="grid909BeatTrack4-Rhyth9"></div>
-              <div class="grid909 grid909-track4 grid909-beat3" id="grid909BeatTrack4-Rhyth10"></div>
-              <div class="grid909 grid909-track4 grid909-beat3" id="grid909BeatTrack4-Rhyth11"></div>
-              <div class="grid909 grid909-track4 grid909-beat3" id="grid909BeatTrack4-Rhyth12"></div>
-              <div class="grid909 grid909-track4 grid909-beat4" id="grid909BeatTrack4-Rhyth13"></div>
-              <div class="grid909 grid909-track4 grid909-beat4" id="grid909BeatTrack4-Rhyth14"></div>
-              <div class="grid909 grid909-track4 grid909-beat4" id="grid909BeatTrack4-Rhyth15"></div>
-              <div class="grid909 grid909-track4 grid909-beat4" id="grid909BeatTrack4-Rhyth16"></div>
-          </div>
-        </div>
-    </div><!--./909 -->
-  </div> <!--./container-->
-
-    <!-- SCRIPTING -->
-    <!-- EXTERNAL -->
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="javascripts/isotope.pkgd.min.js"></script>
-
-    <!-- BOOTSTRAP -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <!-- UTILITY -->
-        <script type="text/javascript" src="javascripts/audiolib.js" charset="utf-8"></script>
-    <!-- APP -->
-        <script type="text/javascript" src="javascripts/globals.js"></script>
-        <script type="text/javascript" src="javascripts/transport.js"></script>
-        <script type="text/javascript" src="javascripts/303.js"></script>
-        <script type="text/javascript" src="javascripts/808.js"></script>
+  <!-- UTILITY -->
+  <script type="text/javascript" src="javascripts/audiolib.js" charset="utf-8"></script>
+  <!-- APP -->
+  <script type="text/javascript" src="javascripts/app.js"></script>
+  <script type="text/javascript" src="javascripts/globals.js"></script>
+  <script type="text/javascript" src="javascripts/transport.js"></script>
+  <script type="text/javascript" src="javascripts/303.js"></script>
+  <script type="text/javascript" src="javascripts/808.js"></script>
 
 
-        <script type="text/javascript">
-        $(window).load(function(){
-          var $container = $('.808Container');
-          $container.isotope({
-              filter: '.bassdrum',
-              animationOptions: {
-                  duration: 750,
-                  easing: 'linear',
-                  queue: false
-              }
-          });
-     
-          $('.filter808 a').click(function(){
-              $('.filter808 .current').removeClass('current');
-              $(this).addClass('current');
-       
-              var selector = $(this).attr('data-filter');
-              $container.isotope({
-                  filter: selector,
-                  animationOptions: {
-                      duration: 0,
-                      easing: 'linear',
-                      queue: false
-                  }
-               });
-               return false;
-          }); 
+  <script type="text/javascript">
+    $(window).load(function() {
+      var $container = $('.808Container');
+      $container.isotope({
+        filter: '.bassdrum',
+        animationOptions: {
+          duration: 750,
+          easing: 'linear',
+          queue: false
+        }
+      });
+
+      $('.filter808 a').click(function() {
+        $('.filter808 .current').removeClass('current');
+        $(this).addClass('current');
+
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+          filter: selector,
+          animationOptions: {
+            duration: 0,
+            easing: 'linear',
+            queue: false
+          }
         });
-        </script>
+        return false;
+      });
+    });
+  </script>
 
 
 
-      <script type="text/javascript">
-        $(window).load(function(){
-          var $container = $('.909Container');
-          $container.isotope({
-              filter: '.bassdrum',
-              animationOptions: {
-                  duration: 0,
-                  easing: 'linear',
-                  queue: false
-              }
-          });
-     
-          $('.filter909 a').click(function(){
-              $('.filter909 .current').removeClass('current');
-              $(this).addClass('current');
-       
-              var selector = $(this).attr('data-filter');
-              $container.isotope({
-                  filter: selector,
-                  animationOptions: {
-                      duration: 0,
-                      easing: 'linear',
-                      queue: false
-                  }
-               });
-               return false;
-          }); 
+  <script type="text/javascript">
+    $(window).load(function() {
+      var $container = $('.909Container');
+      $container.isotope({
+        filter: '.bassdrum',
+        animationOptions: {
+          duration: 0,
+          easing: 'linear',
+          queue: false
+        }
+      });
+
+      $('.filter909 a').click(function() {
+        $('.filter909 .current').removeClass('current');
+        $(this).addClass('current');
+
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+          filter: selector,
+          animationOptions: {
+            duration: 0,
+            easing: 'linear',
+            queue: false
+          }
         });
-        </script>
+        return false;
+      });
+    });
+  </script>
 
 
 </body>
+
 </html>

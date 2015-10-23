@@ -1,62 +1,53 @@
-$(function () {
+angular.module('reBjorn').controller('TransportController', function($scope, GlobalsService, $window) {
+  var current16thNote = GlobalsService.current16thNote;
+  var futureTickTime = GlobalsService.futureTickTime;
+  var audioContext = GlobalsService.audioContext;
+  var tempo = GlobalsService.tempo;
+  var isPlaying = GlobalsService.isPlaying;
 
-    var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
-    var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause"></span></a>';
-    var playerBarPlayButton = '<i class="ion-play"></i>';
-    var playerBarPauseButton = '<i class="ion-pause"></i>';
-    var $playPauseButton = $('.play-pause');
+  $scope.tempo = tempo;
 
-//================ Play Button =================//
-    $("#play-button").on("click", function () {
-        play();
+  //================ Play =======================//
+
+  $scope.play = function() {
+    isPlaying = !isPlaying;
+    $scope.isPlaying = isPlaying;
+
+    if (isPlaying) {
+      current16thNote = 1;
+      currentNote = 0;
+      futureTickTime = audioContext.currentTime;
+      $scope.scheduler();
+      return "stop";
+    } else {
+      $window.clearTimeout(timerID);
+      return "play";
+    }
+  };
+
+  //================ Future Tick ==================//
+  $scope.futureTick = function() {
+
+    $scope.$watch('tempo', function() {
+      $scope.tempo = parseInt($scope.tempo);
     });
 
-//================ Tempo ======================//
-    $("#tempo").on("change", function () {
-        tempo = this.value;
-    });
+    var secondsPerBeat = 60.0 / $scope.tempo;
+    futureTickTime += 0.25 * secondsPerBeat;
+    current16thNote++;
+    if (current16thNote > 16) {
+      current16thNote = 1;
+    }
+  };
 
-//================ Play =======================//
-    $(document).ready(function() {
-        $playPauseButton.click(play);   
-    });
-
-    play = function() {
-        isPlaying = !isPlaying;
-
-        if (isPlaying) {
-            current16thNote = 1;
-            currentNote = 0;
-            futureTickTime = audioContext.currentTime;
-            scheduler();
-            $playPauseButton.html(playerBarPauseButton);
-            return "stop";
-        } else {
-            window.clearTimeout(timerID);
-            $playPauseButton.html(playerBarPlayButton);
-            return "play";
-        }
-    };
-
-//================ Future Tick ==================//
-    futureTick = function () {
-        var secondsPerBeat = 60.0 / tempo;
-        futureTickTime += 0.25 * secondsPerBeat;
-        current16thNote++;
-        if (current16thNote > 16) {
-            current16thNote = 1;
-        }
-    };
-
-//================ Scheduler ==================//
-    scheduler = function() {
-        while (futureTickTime < audioContext.currentTime + 0.1) {
-            schedule303(current16thNote, futureTickTime);// SENDS STEP TO 303
-            schedule909(current16thNote, futureTickTime);// SENDS STEP TO 909
-            schedule808(current16thNote, futureTickTime);// SENDS STEP TO 808        
-            futureTick();
-        }
-        timerID = window.setTimeout(scheduler, 50.0);
-    };
-
+  //================ Scheduler ==================//
+  $scope.scheduler = function() {
+    while (futureTickTime < audioContext.currentTime + 0.1) {
+      schedule303(current16thNote, futureTickTime); // SENDS STEP TO 303
+      schedule909(current16thNote, futureTickTime); // SENDS STEP TO 909
+      schedule808(current16thNote, futureTickTime); // SENDS STEP TO 808
+      $scope.futureTick();
+    }
+    timerID = $window.setTimeout($scope.scheduler, 50.0);
+  };
 });

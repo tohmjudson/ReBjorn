@@ -1,0 +1,185 @@
+<!-- 303 -->
+<div class="rack">
+  <h3>303</h3>
+
+  <button class="btn btn-info btn-sm" data-target="#Modal303" data-toggle="modal" type="button">Settings</button>
+  <div class="modal fade" id="Modal303" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" type="button">&times;</button>
+          <h4 class="modal-title">303 Settings</h4>
+        </div>
+        <div class="modal-body">
+          Wave Type:
+          <select id="waveType">
+            <option>sine</option>
+            <option>square</option>
+            <option>sawtooth</option>
+            <option>triangle</option>
+          </select>
+          <br/>
+          <br/>
+          <label for="baseOctave">
+            Base Octave
+            <span id='baseOctaveDisplay'>4</span>
+            <input class="pitchmod" id="baseOctave" max="7" min="2" name="baseOctave-slider" step="1" style="float:right" type="range" value="4">
+          </label>
+          <label for="basePitch">
+            Base Pitch
+            <span id='basePitchDisplay'>C</span>
+            <input class="pitchmod" id="basePitch" max="12" min="0" name="basePitch-slider" step="1" style="float:right" type="range" value="0">
+          </label>
+          <label for="filter01">
+            Lowpass Filter
+            <span id='filter01Display'>20000</span>
+            <input class="pitchmod" id="filter01" max="20000" min="20" name="filter01-slider" step="1" style="float:right" type="range" value="20000">
+          </label>
+          <label for="delayTime">
+            Delay Time
+            <span id='delayTimeDisplay'>0.75</span>
+            <input class="pitchmod" id="delayTime" max="2" min="0" name="delayTime-slider" step="0.05" style="float:right" type="range" value="0.75">
+          </label>
+          <label for="delayFeedback">
+            Delay Feedback
+            <span id='delayFeedbackDisplay'>0.35</span>
+            <input class="pitchmod" id="delayFeedback" max="0.8" min="0" name="delayFeedback-slider" step="0.01" style="float:right" type="range" value="0.35">
+          </label>
+          <label for="delayCutoff">
+            Delay Cutoff
+            <span id='delayCutoffDisplay'>20000</span>
+            <input class="pitchmod" id="delayCutoff" max="20000" min="20" name="delayCutoff-slider" step="1" style="float:right" type="range" value="20000">
+          </label>
+          <label for="distortion">
+            Distortion
+            <span id='distortionDisplay'>0.35</span>
+            <input class="pitchmod" id="distortion" max="0.99" min="0" name="distortion-slider" step="0.01" style="float:right" type="range" value="0.35">
+          </label>
+          <label for="masterGain303">
+            303 Gain
+            <span id='masterGain303Display'>0.5</span>
+            <input class="pitchmod" id="masterGain303" max="1.0" min="0" name="masterGain303-slider" step="0.01" style="float:right" type="range" value=".5">
+          </label>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <br/>
+  <div class="sequencer" id="sequencer">
+    <div class="sequencer-steps ">
+      <input class="number" data-id="0" id="slider1" list="slider--1" max="12" min="0" type="number" value="0">
+      <input class="muteBox" id="checkbox01" type="checkbox" value="0">
+      <input class="accentBox" id="checkbox01" type="checkbox" value="0">
+      <input class="portamentoBox" id="checkbox01" type="checkbox" value="0">
+      <input class="octaveBox" id="checkbox01" type="checkbox" value="0">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="1" id="slider2" list="slider--2" max="12" min="0" type="number" value="2">
+      <input class="muteBox" id="checkbox02" type="checkbox" value="1">
+      <input class="accentBox" id="checkbox02" type="checkbox" value="1">
+      <input class="portamentoBox" id="checkbox02" type="checkbox" value="1">
+      <input class="octaveBox" id="checkbox02" type="checkbox" value="1">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="2" id="slider3" list="slider--3" max="12" min="0" type="number" value="4">
+      <input class="muteBox" id="checkbox03" type="checkbox" value="2">
+      <input class="accentBox" id="checkbox03" type="checkbox" value="2">
+      <input class="portamentoBox" id="checkbox03" type="checkbox" value="2">
+      <input class="octaveBox" id="checkbox03" type="checkbox" value="2">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="3" id="slider4" list="slider--4" max="12" min="0" type="number" value="5">
+      <input class="muteBox" id="checkbox04" type="checkbox" valued="3">
+      <input class="accentBox" id="checkbox04" type="checkbox" value="3">
+      <input class="portamentoBox" id="checkbox04" type="checkbox" value="3">
+      <input class="octaveBox" id="checkbox04" type="checkbox" value="3">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="4" id="slider5" list="slider--5" max="12" min="0" type="number" value="7">
+      <input class="muteBox" id="checkbox05" type="checkbox" value="4">
+      <input class="accentBox" id="checkbox05" type="checkbox" value="4">
+      <input class="portamentoBox" id="checkbox05" type="checkbox" value="4">
+      <input class="octaveBox" id="checkbox05" type="checkbox" value="4">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="5" id="slider6" list="slider--6" max="12" min="0" type="number" value="9">
+      <input class="muteBox" id="checkbox06" type="checkbox" value="5">
+      <input class="accentBox" id="checkbox06" type="checkbox" value="5">
+      <input class="portamentoBox" id="checkbox06" type="checkbox" value="5">
+      <input class="octaveBox" id="checkbox06" type="checkbox" value="5">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="6" id="slider7" list="slider--7" max="12" min="0" type="number" value="11">
+      <input class="muteBox" id="checkbox07" type="checkbox" value="6">
+      <input class="accentBox" id="checkbox07" type="checkbox" value="6">
+      <input class="portamentoBox" id="checkbox07" type="checkbox" value="6">
+      <input class="octaveBox" id="checkbox07" type="checkbox" value="6">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="7" id="slider8" list="slider--8" max="12" min="0" type="number" value="12">
+      <input class="muteBox" id="checkbox08" type="checkbox" value="7">
+      <input class="accentBox" id="checkbox08" type="checkbox" value="7">
+      <input class="portamentoBox" id="checkbox08" type="checkbox" value="7">
+      <input class="octaveBox" id="checkbox08" type="checkbox" value="7">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="8" id="slider9" list="slider--9" max="12" min="0" type="number" value="11">
+      <input class="muteBox" id="checkbox09" type="checkbox" value="8">
+      <input class="accentBox" id="checkbox09" type="checkbox" value="8">
+      <input class="portamentoBox" id="checkbox09" type="checkbox" value="8">
+      <input class="octaveBox" id="checkbox09" type="checkbox" value="8">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="9" id="slider10" list="slider--10" max="12" min="0" type="number" value="9">
+      <input class="muteBox" id="checkbox10" type="checkbox" value="9">
+      <input class="accentBox" id="checkbox10" type="checkbox" value="9">
+      <input class="portamentoBox" id="checkbox10" type="checkbox" value="9">
+      <input class="octaveBox" id="checkbox10" type="checkbox" value="9">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="10" id="slider11" list="slider--11" max="12" min="0" type="number" value="7">
+      <input class="muteBox" id="checkbox11" type="checkbox" value="10">
+      <input class="accentBox" id="checkbox11" type="checkbox" value="10">
+      <input class="portamentoBox" id="checkbox11" type="checkbox" value="10">
+      <input class="octaveBox" id="checkbox11" type="checkbox" value="10">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="11" id="slider12" list="slider--12" max="12" min="0" type="number" value="5">
+      <input class="muteBox" id="checkbox12" type="checkbox" value="11">
+      <input class="accentBox" id="checkbox12" type="checkbox" value="11">
+      <input class="portamentoBox" id="checkbox12" type="checkbox" value="11">
+      <input class="octaveBox" id="checkbox12" type="checkbox" value="11">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="12" id="slider13" list="slider--13" max="12" min="0" type="number" value="4">
+      <input class="muteBox" id="checkbox13" type="checkbox" value="12">
+      <input class="accentBox" id="checkbox13" type="checkbox" value="12">
+      <input class="portamentoBox" id="checkbox13" type="checkbox" value="12">
+      <input class="octaveBox" id="checkbox13" type="checkbox" value="12">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="13" id="slider14" list="slider--14" max="12" min="0" type="number" value="2">
+      <input class="muteBox" id="checkbox14" type="checkbox" value="13">
+      <input class="accentBox" id="checkbox14" type="checkbox" value="13">
+      <input class="portamentoBox" id="checkbox14" type="checkbox" value="13">
+      <input class="octaveBox" id="checkbox14" type="checkbox" value="13">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="14" id="slider15" list="slider--15" max="12" min="0" type="number" value="0">
+      <input class="muteBox" id="checkbox15" type="checkbox" value="14">
+      <input class="accentBox" id="checkbox15" type="checkbox" value="14">
+      <input class="portamentoBox" id="checkbox15" type="checkbox" value="14">
+      <input class="octaveBox" id="checkbox15" type="checkbox" value="14">
+    </div>
+    <div class="sequencer-steps">
+      <input class="number" data-id="15" id="slider16" list="slider--16" max="12" min="0" type="number" value="7">
+      <input class="muteBox" id="checkbox16" type="checkbox" value="15">
+      <input class="accentBox" id="checkbox16" type="checkbox" value="15">
+      <input class="portamentoBox" id="checkbox16" type="checkbox" value="15">
+      <input class="octaveBox" id="checkbox16" type="checkbox" value="15">
+    </div>
+  </div>
+
+</div>
