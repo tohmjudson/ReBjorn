@@ -57,6 +57,7 @@ var kick808 = audioFileLoader("sounds/808/BD01.wav"),
 
 //================ Schedule Note to be played ==================//
   schedule808 = function (current16thNote, time) {
+  	console.log(current16thNote);
     checkAndPlay(track1, kick808, current16thNote, time, gains.kick808Gain, pans.kick808pan, playbackRates.kick808Rate);
     checkAndPlay(track2, snare808, current16thNote, time, gains.snare808Gain, pans.snare808pan, playbackRates.snare808Rate);
     checkAndPlay(track3, hihat808, current16thNote, time, gains.hihat808Gain, pans.hihat808pan, playbackRates.hihat808Rate);

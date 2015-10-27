@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link rel="stylesheet" type="text/css" href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
@@ -16,99 +17,19 @@
 
 <body>
   <div class="container">
-    <div class="rack play-controls" ng-controller="TransportController">
-      <h1>ReBjorn</h1>
-      <a class="play-pause" ng-click="play($event)">
-        <span ng-class="isPlaying ? 'ion-pause' : 'ion-play'"></span>
-      </a>
-      <label id="tempoBox">Tempo:
-        <input class="number" ng-model="tempo" type="number" min="30.0" max="185.0" step="1" value="120">
-      </label>
-    </div>
-
-  <!-- Three O Three -->
-  <div class="rack">
-    <h3>303</h3>
-
-    <button class="btn btn-info btn-sm" data-target="#Modal303" data-toggle="modal" type="button">Settings</button>
-    <div class="modal fade" id="Modal303" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" data-dismiss="modal" type="button">&times;</button>
-            <h4 class="modal-title">303 Settings</h4>
-          </div>
-          <div class="modal-body">
-            Wave Type:
-            <select id="waveType">
-              <option>sine</option>
-              <option>square</option>
-              <option>sawtooth</option>
-              <option>triangle</option>
-            </select>
-            <br/>
-            <br/>
-            <label for="baseOctave">
-              Base Octave
-              <span id='baseOctaveDisplay'>4</span>
-              <input class="pitchmod" id="baseOctave" max="7" min="2" name="baseOctave-slider" step="1" style="float:right" type="range" value="4">
-            </label>
-            <label for="basePitch">
-              Base Pitch
-              <span id='basePitchDisplay'>C</span>
-              <input class="pitchmod" id="basePitch" max="12" min="0" name="basePitch-slider" step="1" style="float:right" type="range" value="0">
-            </label>
-            <label for="filter01">
-              Lowpass Filter
-              <span id='filter01Display'>20000</span>
-              <input class="pitchmod" id="filter01" max="20000" min="20" name="filter01-slider" step="1" style="float:right" type="range" value="20000">
-            </label>
-            <label for="delayTime">
-              Delay Time
-              <span id='delayTimeDisplay'>0.75</span>
-              <input class="pitchmod" id="delayTime" max="2" min="0" name="delayTime-slider" step="0.05" style="float:right" type="range" value="0.75">
-            </label>
-            <label for="delayFeedback">
-              Delay Feedback
-              <span id='delayFeedbackDisplay'>0.35</span>
-              <input class="pitchmod" id="delayFeedback" max="0.8" min="0" name="delayFeedback-slider" step="0.01" style="float:right" type="range" value="0.35">
-            </label>
-            <label for="delayCutoff">
-              Delay Cutoff
-              <span id='delayCutoffDisplay'>20000</span>
-              <input class="pitchmod" id="delayCutoff" max="20000" min="20" name="delayCutoff-slider" step="1" style="float:right" type="range" value="20000">
-            </label>
-            <label for="distortion">
-              Distortion
-              <span id='distortionDisplay'>0.35</span>
-              <input class="pitchmod" id="distortion" max="0.99" min="0" name="distortion-slider" step="0.01" style="float:right" type="range" value="0.35">
-            </label>
-            <label for="masterGain303">
-              303 Gain
-              <span id='masterGain303Display'>0.5</span>
-              <input class="pitchmod" id="masterGain303" max="1.0" min="0" name="masterGain303-slider" step="0.01" style="float:right" type="range" value=".5">
-            </label>
-            <br/>
-          </div>
-        </div>
+  <!-- Transport Controls -->  
+    <div class="rack" ng-controller="TransportController">
+      <div class="play-controls">
+        <h1>ReBjorn</h1>
+        <label id="tempoBox">Tempo:  <input class="number" ng-model="tempo" type="number" min="30.0" max="185.0" step="1" value="120"></label>
+        <a class="play-pause" ng-click="play($event)"><span ng-class="isPlaying ? 'ion-pause' : 'ion-play'"></span></a>
       </div>
     </div>
-    <br/>
-    <br/>
 
-    <div ng-controller="ThreeOThreeController">
-      <ul class="">
-        <li ng-repeat="step in steps">
-          <input type="number" min="0" max="12" value="{{step.pitch}}" ng-model="step.pitch">
-          <input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.muted">
-          <input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.accented">
-          <input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.portamento">
-          <input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.octave">
-        </li>
-      </ul>
-    </div>
+  <div class="303s">
+    <threeothree modal-id="303a"></threeothree>
+    <threeothree modal-id="303b"></threeothree>
   </div>
-  <!-- ./Three O Three -->
 
 
 
@@ -118,7 +39,7 @@
 
   <div class="filter808">
     <div class="modals-808">
-      <a data-filter=".bassdrum">Bass</a><br/>
+      <a data-filter=".bassdrum">Bass Drum</a><br/>
       <!-- Modal -->
       <button class="btn btn-info btn-sm" data-target="#bassdrum808Modal" data-toggle="modal" type="button">Settings</button>
       <div class="modal fade" id="bassdrum808Modal" role="dialog">
@@ -231,7 +152,7 @@
   </div>
 
 
-
+  <!-- DIVs as pads for each step -->
     <div class="tracks 808Container" ng-controller="EightOEightController">
       <div class="bassdrum" id="track-1-container">
         <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhythm1"></div>
@@ -325,6 +246,7 @@
 
   <!-- BOOTSTRAP -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
 
   <!-- APP -->
   <script type="text/javascript" src="javascripts/app.js"></script>
@@ -332,7 +254,7 @@
   <script type="text/javascript" src="javascripts/TransportController.js"></script>
   <script type="text/javascript" src="javascripts/ThreeOThreeController.js"></script>
   <script type="text/javascript" src="javascripts/EightOEightController.js"></script>
-
+  <script type="text/javascript" src="javascripts/ThreeOThreeDirective.js"></script>
 
   <script type="text/javascript">
     $(window).load(function() {
@@ -363,39 +285,6 @@
       });
     });
   </script>
-
-
-
-  <script type="text/javascript">
-    $(window).load(function() {
-      var $container = $('.909Container');
-      $container.isotope({
-        //filter: '.bassdrum',
-        animationOptions: {
-          duration: 0,
-          easing: 'linear',
-          queue: false
-        }
-      });
-
-      $('.filter909 a').click(function() {
-        $('.filter909 .current').removeClass('current');
-        $(this).addClass('current');
-
-        var selector = $(this).attr('data-filter');
-        $container.isotope({
-          filter: selector,
-          animationOptions: {
-            duration: 0,
-            easing: 'linear',
-            queue: false
-          }
-        });
-        return false;
-      });
-    });
-  </script>
-
 
 </body>
 
