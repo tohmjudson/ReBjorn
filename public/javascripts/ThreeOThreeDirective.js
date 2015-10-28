@@ -1,9 +1,12 @@
 angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 	return {
 		restrict: 'E',
+		scope: {
+
+			
+		},
 		templateUrl: '/templates/303.html',
-		scope: {},
-		link: function(scope, element, attrs) {
+		link: function(scope, element, attrs, ngModelCtrl) {
 			  var audioContext = GlobalsService.audioContext;
 			  var current16thNote = GlobalsService.current16thNote;
 			  var serial = GlobalsService.serial;
@@ -11,13 +14,13 @@ angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 			  var attack = 1/128;
 
 			  scope.settings = {
-			    baseOctave: 2,
-			    basePitch: 3,
+			    baseOctave: 3,
+			    basePitch: 0,
 			    filter01: 20000,
 			    delayTime: .75,
 			    delayFeedback: .35,
 			    delayCutoff: 20000,
-			    delayGain: .5,
+			    delayGain: 0,
 			    delayPan: 0,
 			    distortion: 0,
 			    masterPan: 0,
@@ -25,6 +28,7 @@ angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 			  };
 			  
 			  scope.modalId = attrs.modalId;
+			  console.log(scope.modalId);
 
 			  scope.steps = [
 			    {pitch: 0, muted: true, accented: true, portamento: false, octave: false},
@@ -45,12 +49,20 @@ angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 			    {pitch: 7, muted: false, accented: false, portamento: false, octave: false}
 			  ];
 
+
+
 			//================= Schedule Note =======================//
-			  schedule303 = function (current16thNote, time) {
-			      scope.monoSynth((scope.steps[current16thNote-1].pitch), time, current16thNote-1, scope.steps[current16thNote-1].muted, scope.steps[current16thNote-1].accented, scope.steps[current16thNote-1].portamento, scope.steps[current16thNote-1].octave);
+			  schedule303 = function(current16thNote, time) {
+			  	  console.log(scope.modalId + ": "+ current16thNote);
+			      monoSynth((scope.steps[current16thNote-1].pitch), time, current16thNote-1, scope.steps[current16thNote-1].muted, scope.steps[current16thNote-1].accented, scope.steps[current16thNote-1].portamento, scope.steps[current16thNote-1].octave);
 			  }
+
+			  scheduleNote = function (current16thNote, time) {
+			  	console.log(scope.modalId + ": "+ current16thNote);
+			  };
+
 			//================= Make Note =======================//
-			  scope.monoSynth = function (note, time, current, mute, accent, port, octave) {
+			  monoSynth = function (note, time, current, mute, accent, port, octave) {
 			    var oscillator = audioContext.createOscillator();
 			    var gainNode = audioContext.createGain();
 			    var delayNode = audioContext.createDelay();
@@ -122,10 +134,9 @@ angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 			    feedback.connect(delayFilter);
 			    delayFilter.connect(delayPanNode);
 			    delayPanNode.connect(delayGainNode);
-			    delayGainNode.connect(delayNode);
-			    delayNode.connect(audioContext.destination);
+			    delayGainNode.connect(audioContext.destination);
 
-			/*    waveShaper.curve = makeDistortionCurve(distortion.value*100);
+			/*  waveShaper.curve = makeDistortionCurve(distortion.value*100);
 			    waveShaper.connect(masterPanNode);*/
 
 			    masterPanNode.pan.value = scope.settings.masterPan;

@@ -44,9 +44,9 @@ angular.module('reBjorn').controller('TransportController', function($scope, Glo
   //================ Scheduler ==================//
   $scope.scheduler = function() {
     while (futureTickTime < audioContext.currentTime + 0.1) {
+      scheduleNote(current16thNote, futureTickTime); // SENDS STEP TO 303
       schedule303(current16thNote, futureTickTime); // SENDS STEP TO 303
       schedule808(current16thNote, futureTickTime); // SENDS STEP TO 808
-      //schedule909(current16thNote, futureTickTime); // SENDS STEP TO 909
       $scope.futureTick();
     }
     timerID = $window.setTimeout($scope.scheduler, 50.0);

@@ -18,6 +18,6 @@ angular.module('reBjorn').factory('GlobalsService', function($window) {
 
     //===================== Utility ============================//
     //Pitch to Text Conversion
-        serial: [ 'C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb', 'B', 'C']
+        serial: [ 'C', 'C#/Db', 'D', 'D#/Eb', 'E', 'F', 'F#/Gb', 'G', 'G#/Ab', 'A', 'A#/Bb', 'B', 'C'],
   };
 });
