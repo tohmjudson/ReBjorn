@@ -6,7 +6,7 @@ angular.module('reBjorn').factory('GlobalsService', function($window) {
 
     //====================== Transport ==========================//
         isPlaying: false,
-        tempo: 120.0,
+        tempo: 90.0,
         current16thNote: 1,
         futureTickTime: 0.0,
         timerID: 0,

@@ -6,7 +6,7 @@ var kick808 = audioFileLoader("sounds/808/BD01.wav"),
     snare808 = audioFileLoader("sounds/808/Snr01.wav"),
     hihat808 = audioFileLoader("sounds/808/HH01.wav"),
     shaker808 = audioFileLoader("sounds/808/CL01.wav"),
-		track1Que = [],
+	track1Que = [],
     track2Que = [],
     track3Que = [],
     track4Que = [],
@@ -15,8 +15,8 @@ var kick808 = audioFileLoader("sounds/808/BD01.wav"),
     track3 = [],
     track4 = [],
     gains = {kick808Gain: 0.5, snare808Gain: 0.5, hihat808Gain: 0.5, shaker808Gain: 0.5},
-		pans = {kick808pan: 0, snare808pan: 0, hihat808pan: 0, shaker808pan: 0},
-		playbackRates = {kick808Rate: 1, snare808Rate: 1, hihat808Rate: 1, shaker808Rate: 1};
+	pans = {kick808pan: 0, snare808pan: 0, hihat808pan: 0, shaker808pan: 0},
+	playbackRates = {kick808Rate: 1, snare808Rate: 1, hihat808Rate: 1, shaker808Rate: 1};
 
 //================ Watchers =================//
   var $gains = $('.gain');

@@ -1,11 +1,11 @@
-angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
+angular.module('reBjorn').directive('threeothreea', function(GlobalsService) {
 	return {
 		restrict: 'E',
 		scope: {
 
 			
 		},
-		templateUrl: '/templates/303.html',
+		templateUrl: '/templates/303a.html',
 		link: function(scope, element, attrs, ngModelCtrl) {
 			  var audioContext = GlobalsService.audioContext;
 			  var current16thNote = GlobalsService.current16thNote;
@@ -14,7 +14,7 @@ angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 			  var attack = 1/128;
 
 			  scope.settings = {
-			    baseOctave: 3,
+			    baseOctave: 4,
 			    basePitch: 0,
 			    filter01: 20000,
 			    delayTime: .75,
@@ -31,35 +31,31 @@ angular.module('reBjorn').directive('threeothree', function(GlobalsService) {
 			  console.log(scope.modalId);
 
 			  scope.steps = [
-			    {pitch: 0, muted: true, accented: true, portamento: false, octave: false},
-			    {pitch: 2, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 4, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 5, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 7, muted: true, accented: false, portamento: false, octave: false},
-			    {pitch: 9, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 11, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 12, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 11, muted: true, accented: false, portamento: false, octave: false},
-			    {pitch: 9, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 7, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 5, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 4, muted: true, accented: false, portamento: false, octave: false},
-			    {pitch: 2, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 0, muted: false, accented: false, portamento: false, octave: false},
-			    {pitch: 7, muted: false, accented: false, portamento: false, octave: false}
+			    {pitch: 5, muted: true, accented: true, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 8, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 3, muted: true, accented: false, portamento: false, octave: false},
+			    {pitch: 5, muted: true, accented: false, portamento: false, octave: false}
 			  ];
 
 
 
 			//================= Schedule Note =======================//
-			  schedule303 = function(current16thNote, time) {
-			  	  console.log(scope.modalId + ": "+ current16thNote);
+			  schedule303a = function(current16thNote, time) {
+			  	  //console.log(scope.modalId + ": "+ current16thNote);
 			      monoSynth((scope.steps[current16thNote-1].pitch), time, current16thNote-1, scope.steps[current16thNote-1].muted, scope.steps[current16thNote-1].accented, scope.steps[current16thNote-1].portamento, scope.steps[current16thNote-1].octave);
 			  }
-
-			  scheduleNote = function (current16thNote, time) {
-			  	console.log(scope.modalId + ": "+ current16thNote);
-			  };
 
 			//================= Make Note =======================//
 			  monoSynth = function (note, time, current, mute, accent, port, octave) {
