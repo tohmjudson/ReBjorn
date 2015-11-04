@@ -1,0 +1,197 @@
+<!-- 808 -->
+<div class="full808 col-md-12 rack">
+  <h3>808</h3>
+  <div class="filter808">
+    <div class="modals-808">
+      <a data-filter=".bassdrum">Bass</a><br/>
+      <!-- Modal -->
+      <button class="btn btn-info btn-sm" data-target="#bassdrum808Modal" data-toggle="modal" type="button">Settings</button>
+      <div class="modal fade" id="bassdrum808Modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal" type="button">&times;</button>
+              <h4 class="modal-title">Bass Drum Settings</h4>
+            </div>
+            <div class="modal-body">
+              <p>Sound Selection
+                <select class="loadAudioFile" id="BD808">
+                  <option value="sounds/808/BD01.wav">BD01</option>
+                  <option value="sounds/808/BD02.wav">BD02</option>
+                  <option value="sounds/808/BD03.wav">BD03</option>
+                </select>
+              </p>
+              <p>Volume</p><input class="gain" id="kick808Gain" max="100" min="0" type="range" value="100">
+              <p>Panning</p><input class="pan" id="kick808pan" max="1" min="-1" step="any" type="range">
+              <p>Pitch</p><input class="playbackRate" id="kick808Rate" max="2" min="0" step="any" type="range">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modals-808">
+      <a data-filter=".snare">Snare</a><br/>
+      <!-- Modal -->
+      <button class="btn btn-info btn-sm" data-target="#snare808Modal" data-toggle="modal" type="button">Settings</button>
+      <div class="modal fade" id="snare808Modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal" type="button">&times;</button>
+              <h4 class="modal-title">Snare Settings</h4>
+            </div>
+            <div class="modal-body">
+              <p>Sound Selection
+                <select class="loadAudioFile" id="Snr808">
+                  <option value="sounds/808/Snr01.wav">Snr01</option>
+                  <option value="sounds/808/Snr02.wav">Snr02</option>
+                  <option value="sounds/808/Snr03.wav">Snr03</option>
+                </select>
+              </p>
+              <p>Volume</p><input class="gain" id="snare808Gain" max="100" min="0" type="range" value="100">
+              <p>Panning</p><input class="pan" id="snare808pan" max="1" min="-1" step="any" type="range">
+              <p>Pitch</p><input class="playbackRate" id="snare808Rate" max="2" min="0" step="any" type="range">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modals-808">
+      <a data-filter=".hihat">HiHat</a><br/>
+      <!-- Modal -->
+      <button class="btn btn-info btn-sm" data-target="#hihat808Modal" data-toggle="modal" type="button">Settings</button>
+      <div class="modal fade" id="hihat808Modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal" type="button">&times;</button>
+              <h4 class="modal-title">HiHat Settings</h4>
+            </div>
+            <div class="modal-body">
+              <p>Sound Selection
+                <select class="loadAudioFile" id="HH808">
+                  <option value="sounds/808/HH01.wav">HH01</option>
+                  <option value="sounds/808/HHo01.wav">HHo01</option>
+                </select>
+              </p>
+              <p>Volume</p><input class="gain" id="hihat808Gain" max="100" min="0" type="range" value="100">
+              <p>Panning</p><input class="pan" id="hihat808pan" max="1" min="-1" step="any" type="range">
+              <p>Pitch</p><input class="playbackRate" id="hihat808Rate" max="2" min="0" step="any" type="range">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modals-808">
+      <a data-filter=".shaker">Accents</a><br/>
+      <!-- Modal -->
+      <button class="btn btn-info btn-sm" data-target="#shaker808Modal" data-toggle="modal" type="button">Settings</button>
+      <div class="modal fade" id="shaker808Modal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" data-dismiss="modal" type="button">&times;</button>
+              <h4 class="modal-title">Accent Settings</h4>
+            </div>
+            <div class="modal-body">
+              <p>Sound Selection
+                <select class="loadAudioFile" id="ACC808">
+                  <option value="sounds/808/CL01.wav">CL01</option>
+                  <option value="sounds/808/MA01.wav">MA01</option>
+                  <option value="sounds/808/Rim01.wav">Rim01</option>
+                </select>
+              </p>
+              <p>Volume</p><input class="gain" id="shaker808Gain" max="100" min="0" type="range" value="100">
+              <p>Panning</p><input class="pan" id="shaker808pan" max="1" min="-1" step="any" type="range">
+              <p>Pitch</p><input class="playbackRate" id="shaker808Rate" max="2" min="0" step="any" type="range">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tracks 808Container">
+
+    <div class="bassdrum" id="track-1-container">
+      <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth1"></div>
+      <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth2"></div>
+      <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth3"></div>
+      <div class="grid808 grid808-track1 grid808-beat1" id="grid808BeatTrack1-Rhyth4"></div>
+      <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth5"></div>
+      <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth6"></div>
+      <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth7"></div>
+      <div class="grid808 grid808-track1 grid808-beat2" id="grid808BeatTrack1-Rhyth8"></div>
+      <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth9"></div>
+      <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth10"></div>
+      <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth11"></div>
+      <div class="grid808 grid808-track1 grid808-beat3" id="grid808BeatTrack1-Rhyth12"></div>
+      <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth13"></div>
+      <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth14"></div>
+      <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth15"></div>
+      <div class="grid808 grid808-track1 grid808-beat4" id="grid808BeatTrack1-Rhyth16"></div>
+    </div>
+
+    <div class="snare" id="track-2-container">
+      <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth1"></div>
+      <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth2"></div>
+      <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth3"></div>
+      <div class="grid808 grid808-track2 grid808-beat1" id="grid808BeatTrack2-Rhyth4"></div>
+      <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth5"></div>
+      <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth6"></div>
+      <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth7"></div>
+      <div class="grid808 grid808-track2 grid808-beat2" id="grid808BeatTrack2-Rhyth8"></div>
+      <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth9"></div>
+      <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth10"></div>
+      <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth11"></div>
+      <div class="grid808 grid808-track2 grid808-beat3" id="grid808BeatTrack2-Rhyth12"></div>
+      <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth13"></div>
+      <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth14"></div>
+      <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth15"></div>
+      <div class="grid808 grid808-track2 grid808-beat4" id="grid808BeatTrack2-Rhyth16"></div>
+    </div>
+
+    <div class="hihat" id="track-3-container">
+      <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth1"></div>
+      <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth2"></div>
+      <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth3"></div>
+      <div class="grid808 grid808-track3 grid808-beat1" id="grid808BeatTrack3-Rhyth4"></div>
+      <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth5"></div>
+      <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth6"></div>
+      <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth7"></div>
+      <div class="grid808 grid808-track3 grid808-beat2" id="grid808BeatTrack3-Rhyth8"></div>
+      <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth9"></div>
+      <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth10"></div>
+      <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth11"></div>
+      <div class="grid808 grid808-track3 grid808-beat3" id="grid808BeatTrack3-Rhyth12"></div>
+      <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth13"></div>
+      <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth14"></div>
+      <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth15"></div>
+      <div class="grid808 grid808-track3 grid808-beat4" id="grid808BeatTrack3-Rhyth16"></div>
+    </div>
+
+    <div class="shaker" id="track-4-container">
+      <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth1"></div>
+      <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth2"></div>
+      <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth3"></div>
+      <div class="grid808 grid808-track4 grid808-beat1" id="grid808BeatTrack4-Rhyth4"></div>
+      <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth5"></div>
+      <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth6"></div>
+      <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth7"></div>
+      <div class="grid808 grid808-track4 grid808-beat2" id="grid808BeatTrack4-Rhyth8"></div>
+      <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth9"></div>
+      <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth10"></div>
+      <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth11"></div>
+      <div class="grid808 grid808-track4 grid808-beat3" id="grid808BeatTrack4-Rhyth12"></div>
+      <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth13"></div>
+      <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth14"></div>
+      <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth15"></div>
+      <div class="grid808 grid808-track4 grid808-beat4" id="grid808BeatTrack4-Rhyth16"></div>
+    </div>
+  </div>
+</div>
+<!--./808 -->

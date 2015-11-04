@@ -1,0 +1,100 @@
+<!-- Three O Three -->
+  <div class="rack" ng-controller="ThreeOThreeControllerB">
+    <h3>303B</h3>
+
+    <button class="btn btn-info btn-sm" data-target="#{{modalId}}" data-toggle="modal" type="button">Settings</button>
+    <div class="modal fade" id="{{modalId}}" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" type="button">&times;</button>
+            <h4 class="modal-title">303B Settings</h4>
+          </div>
+          <div class="modal-body">
+            Wave Type:
+            <select id="waveTypeB">
+              <option>sine</option>
+              <option>square</option>
+              <option>sawtooth</option>
+              <option>triangle</option>
+            </select>
+            <br/>
+            <br/>
+            <label for="baseOctave">
+              Octave
+              <span>{{settingsB.baseOctave}}</span>
+              <input ng-model="settingsB.baseOctave" max="7" min="2" step="1" style="float:right" type="range">
+            </label>
+            <label for="basePitch">
+              Pitch
+              <span>{{settingsB.basePitch}}</span>
+              <input ng-model="settingsB.basePitch" max="12" min="0" step="1" style="float:right" type="range">
+            </label>
+            <label for="filter01">
+              Lowpass Filter
+              <span>{{settingsB.filter01}}</span>
+              <input ng-model="settingsB.filter01" max="20000" min="20" step="1" style="float:right" type="range">
+            </label>
+            <label for="delayTime">
+              Delay Time
+              <span>{{settingsB.delayTime}}</span>
+              <input ng-model="settingsB.delayTime" max="2" min="0" step="0.05" style="float:right" type="range">
+            </label>
+            <label for="delayFeedback">
+              Delay Feedback
+              <span>{{settingsB.delayFeedback}}</span>
+              <input ng-model="settingsB.delayFeedback" max="0.8" min="0" step="0.01" style="float:right" type="range">
+            </label>
+            <label for="delayCutoff">
+              Delay Cutoff
+              <span>{{settingsB.delayCutoff}}</span>
+              <input ng-model="settingsB.delayCutoff" max="20000" min="20" step="1" style="float:right" type="range">
+            </label>
+            <label for="delayGainDisplay">
+              Delay Gain
+              <span>{{settingsB.delayGain}}</span>
+              <input ng-model="settingsB.delayGain" max="1.0" min="0" step="0.01" style="float:right" type="range">
+            </label>
+            <label for="delayPanDisplay">
+              Delay Pan
+              <span>{{settingsB.delayPan}}</span>
+              <input ng-model="settingsB.delayPan" max="1.0" min="-1.0" step="0.01" style="float:right" type="range">
+            </label>
+            <label for="distortion">
+              Distortion
+              <span>{{settingsB.distortion}}</span>
+              <input ng-model="settingsB.distortion" max="0.99" min="0" step="0.01" style="float:right" type="range">
+            </label>
+            <label for="masterPanDisplay">
+              Master Pan
+              <span>{{settingsB.masterPan}}</span>
+              <input ng-model="settingsB.masterPan" max="1.0" min="-1.0" step="0.01" style="float:right" type="range">
+            </label>
+            <label for="masterGain303">
+              303 Gain
+              <span>{{settingsB.masterGain303}}</span>
+              <input ng-model="settingsB.masterGain303" max="1.0" min="0" step="0.01" style="float:right" type="range"
+              >
+            </label>
+            <br/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    <br/>
+
+    <div>
+        <li ng-repeat="step in stepsB">
+          <div class="sequencer-steps">
+            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.muted"> Act</label>
+            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.accented"> Acc</label>
+            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.portamento"> Port</label>
+            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.octave"> Oct-</label>
+            <br />
+            <input type="number" min="0" max="12" value="{{step.pitch}}" ng-model="step.pitch">
+            </div>
+          </li>
+    </div>
+  </div>
+  <!-- ./Three O Three -->
