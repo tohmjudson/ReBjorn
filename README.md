@@ -3,7 +3,7 @@ ReBjorn
 
 ![Screenshot](screenshot.jpg "Screenshot")
 
-A recreation of the clasic Rolland 303, 808 and 909. Built with Web Audio, Angular, Node, and vanilla Javascript.
+A recreation of the clasic Roland 303, 808 and 909. Built with Web Audio, Angular, Node, and vanilla Javascript.
 
 This IN PROGRESS web app is built and named for the infamous ReBirth software, by Propellerheads.
 
