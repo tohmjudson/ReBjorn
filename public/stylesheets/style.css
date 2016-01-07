@@ -2,11 +2,20 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: #F5F5F5;
-  color: #737373;
+  /*color: #737373;*/
+}
+
+h1 {
+  padding-left: 20px;
+}
+
+h1, h2, h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 label {
-    display: block;
+    display: inline-block;
     line-height: 25px;
 }
 
@@ -228,12 +237,14 @@ a:hover {
 }
 
 .play-pause {
-  font-size: 36px;
+  font-size: 24px;
+  color: green;
+  display: inline-block;
+  padding-left: 25px;
 }
 
 .play-controls{
 }
-
 
 .modals-808 {
   display: inline-block;
@@ -243,4 +254,15 @@ a:hover {
 .checkbox-label{
   font-size: 9px;
   line-height: 11px;
+}
+
+.btn {
+  vertical-align: text-bottom;
+}
+
+.btn-group-sm>.btn, .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.1;
+    border-radius: 3px;
 }

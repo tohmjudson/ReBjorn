@@ -17,11 +17,11 @@
 
 <body>
   <div class="container">
+  <div><h1>ReBjorn<a href="https://github.com/tohmjudson/ReBjorn"><i class="icon ion-social-github" style="color: black; padding-left: 15px"></i></a></h1></div>
   <!-- Transport Controls -->  
     <div class="rack" ng-controller="TransportController">
       <div class="play-controls">
-        <h1>ReBjorn</h1>
-        <label id="tempoBox">Tempo:  <input class="number" ng-model="tempo" type="number" min="30.0" max="185.0" step="1" value="120"></label>
+        <label id="tempoBox">Tempo:  <input class="number" ng-model="tempo" type="number" min="30.0" max="185.0" step="1" value="90"></label>
         <a class="play-pause" ng-click="play($event)"><span ng-class="isPlaying ? 'ion-pause' : 'ion-play'"></span></a>
       </div>
     </div>
@@ -36,7 +36,7 @@
   <!-- Eight O Eight -->
   <div class="rack">
     <h3>808</h3>
-
+<hr/>
   <div class="filter808">
     <div class="modals-808">
       <a data-filter=".bassdrum">Bass Drum</a><br/>
@@ -238,7 +238,7 @@
 <!-- 909 -->
 <div class="full909 col-md-12 rack">
   <h3>909</h3>
-
+<hr/>
   <div class="filter909">
     <div class="modals-808">
       <a data-filter=".bassdrum">Bass Drum</a><br/>

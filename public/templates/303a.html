@@ -1,8 +1,8 @@
 <!-- Three O Three -->
   <div class="rack" ng-controller="ThreeOThreeControllerA">
-    <h3>303A</h3>
+    <h3>303A
 
-    <button class="btn btn-info btn-sm" data-target="#{{modalId}}" data-toggle="modal" type="button">Settings</button>
+    <button class="btn btn-info btn-sm" data-target="#{{modalId}}" data-toggle="modal" type="button">Settings</button></h3>
     <div class="modal fade" id="{{modalId}}" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -20,57 +20,57 @@
             </select>
             <br/>
             <br/>
-            <label for="baseOctave">
+            <label for="baseOctave" style="display: block">
               Octave
               <span>{{settings.baseOctave}}</span>
               <input ng-model="settings.baseOctave" max="7" min="2" step="1" style="float:right" type="range">
             </label>
-            <label for="basePitch">
+            <label for="basePitch" style="display: block">
               Pitch
               <span>{{settings.basePitch}}</span>
               <input ng-model="settings.basePitch" max="12" min="0" step="1" style="float:right" type="range">
             </label>
-            <label for="filter01">
+            <label for="filter01" style="display: block">
               Lowpass Filter
               <span>{{settings.filter01}}</span>
               <input ng-model="settings.filter01" max="20000" min="20" step="1" style="float:right" type="range">
             </label>
-            <label for="delayTime">
+            <label for="delayTime" style="display: block">
               Delay Time
               <span>{{settings.delayTime}}</span>
               <input ng-model="settings.delayTime" max="2" min="0" step="0.05" style="float:right" type="range">
             </label>
-            <label for="delayFeedback">
+            <label for="delayFeedback" style="display: block">
               Delay Feedback
               <span>{{settings.delayFeedback}}</span>
               <input ng-model="settings.delayFeedback" max="0.8" min="0" step="0.01" style="float:right" type="range">
             </label>
-            <label for="delayCutoff">
+            <label for="delayCutoff" style="display: block">
               Delay Cutoff
               <span>{{settings.delayCutoff}}</span>
               <input ng-model="settings.delayCutoff" max="20000" min="20" step="1" style="float:right" type="range">
             </label>
-            <label for="delayGainDisplay">
+            <label for="delayGainDisplay" style="display: block">
               Delay Gain
               <span>{{settings.delayGain}}</span>
               <input ng-model="settings.delayGain" max="1.0" min="0" step="0.01" style="float:right" type="range">
             </label>
-            <label for="delayPanDisplay">
+            <label for="delayPanDisplay" style="display: block">
               Delay Pan
               <span>{{settings.delayPan}}</span>
               <input ng-model="settings.delayPan" max="1.0" min="-1.0" step="0.01" style="float:right" type="range">
             </label>
-            <label for="distortion">
+            <label for="distortion" style="display: block">
               Distortion
               <span>{{settings.distortion}}</span>
               <input ng-model="settings.distortion" max="0.99" min="0" step="0.01" style="float:right" type="range">
             </label>
-            <label for="masterPanDisplay">
+            <label for="masterPanDisplay" style="display: block">
               Master Pan
               <span>{{settings.masterPan}}</span>
               <input ng-model="settings.masterPan" max="1.0" min="-1.0" step="0.01" style="float:right" type="range">
             </label>
-            <label for="masterGain303">
+            <label for="masterGain303" style="display: block">
               303 Gain
               <span>{{settings.masterGain303}}</span>
               <input ng-model="settings.masterGain303" max="1.0" min="0" step="0.01" style="float:right" type="range"
@@ -81,14 +81,13 @@
         </div>
       </div>
     </div>
-    <br/>
-    <br/>
+    <hr/>
 
     <div>
         <li ng-repeat="step in steps">
           <div class="sequencer-steps">
-            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.muted"> Act</label>
-            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.accented"> Acc</label>
+            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.muted"> On</label>
+            <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.accented"> Accent</label>
             <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.portamento"> Port</label>
             <label class="checkbox-label"><input value="{{steps.indexOf(step)}}" type="checkbox" ng-model="step.octave"> Oct-</label>
             <br />

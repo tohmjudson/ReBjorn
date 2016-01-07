@@ -6,7 +6,7 @@ var kick909 = audioFileLoader909("sounds/909/BD/BT0A0A7.wav"),
     snare909 = audioFileLoader909("sounds/909/snare.wav"),
     hihat909 = audioFileLoader909("sounds/909/hihat.wav"),
     shaker909 = audioFileLoader909("sounds/909/rim.wav"),
-	track909_1Que = [],
+	  track909_1Que = [],
     track909_2Que = [],
     track909_3Que = [],
     track909_4Que = [],
@@ -15,8 +15,8 @@ var kick909 = audioFileLoader909("sounds/909/BD/BT0A0A7.wav"),
     track909_3 = [],
     track909_4 = [],
     gains = {kick909Gain: 0.5, snare909Gain: 0.5, hihat909Gain: 0.5, shaker909Gain: 0.5},
-	pans = {kick909pan: 0, snare909pan: 0, hihat909pan: 0, shaker909pan: 0},
-	playbackRates = {kick909Rate: 1, snare909Rate: 1, hihat909Rate: 1, shaker909Rate: 1};
+	  pans = {kick909pan: 0, snare909pan: 0, hihat909pan: 0, shaker909pan: 0},
+	  playbackRates = {kick909Rate: 1, snare909Rate: 1, hihat909Rate: 1, shaker909Rate: 1};
 
 //================ Watchers =================//
   var $gains = $('.gain');
