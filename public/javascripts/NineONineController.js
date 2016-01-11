@@ -2,10 +2,10 @@ angular.module('reBjorn').controller('NineONineController', function($scope, Glo
 
 //================ Default Files and Settings=================//
 
-var kick909 = audioFileLoader909("sounds/909/BD/BT0A0A7.wav"),
-    snare909 = audioFileLoader909("sounds/909/snare.wav"),
-    hihat909 = audioFileLoader909("sounds/909/hihat.wav"),
-    shaker909 = audioFileLoader909("sounds/909/rim.wav"),
+var kick909 = audioFileLoader909("sounds/909/BD/BT0A0A7.WAV"),
+    snare909 = audioFileLoader909("sounds/909/SNR/ST0T0S0.WAV"),
+    hihat909 = audioFileLoader909("sounds/909/HHCL/HHCD0.WAV"),
+    shaker909 = audioFileLoader909("sounds/909/handclap/HANDCLP1.WAV"),
 	  track909_1Que = [],
     track909_2Que = [],
     track909_3Que = [],
